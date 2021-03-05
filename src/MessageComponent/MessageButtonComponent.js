@@ -10,9 +10,9 @@ class MessageButtonComponent extends React.Component
     {
         
         return (
-            <form >
-                <textarea value = {this.state.newMessage}  />
-                <input type="submit"></input>
+            <form>
+                <textarea class="form-control"value = {this.state.newMessage}  />
+                <input type="submit" class="btn btn-success form-control"></input>
             </form>
         )
     }
