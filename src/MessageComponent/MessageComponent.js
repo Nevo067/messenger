@@ -10,11 +10,15 @@ class MessageComponent extends React.Component {
     }
 
     render() {
-        return(
-            <MessageButtonComponent 
-                addMessage = {this.addMessage}
-                ListMessage = {this.state.ListMessage}
-            />
+        return (
+            <div class="row">
+                <div class="col col-12">
+                    <MessageButtonComponent
+                        addMessage={this.addMessage}
+                        ListMessage={this.state.ListMessage}
+                    />
+                </div>
+            </div>
         );
     }
 
