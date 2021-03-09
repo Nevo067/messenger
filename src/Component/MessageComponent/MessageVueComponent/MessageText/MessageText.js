@@ -13,6 +13,8 @@ class MessageText extends React.Component
             <div class="border border-primary rounded-10">
                 <p>{this.state.Message}</p>
             </div>
+
+            
         );
     }
 }
