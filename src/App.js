@@ -1,15 +1,15 @@
 import logo from './logo.svg';
 import './App.css';
-import MessageComponent from './MessageComponent/MessageButtonComponent'
+/*don't put {}.that create a error and you can't have access to the store
+ https://stackoverflow.com/questions/50532674/redux-mapstatetoprops-not-working
+ */
+import  MessageControllerComponent  from './Component/ControllerComponent/MessageControllerComponent';
 
 function App() {
   return (
     
     <div>
-
-      
-
-      <MessageComponent />
+      <MessageControllerComponent messages ={[]}  />
     </div>
   );
 }

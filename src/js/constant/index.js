@@ -1,4 +1,5 @@
 export const ADD_MESSAGE = "ADD_MESSAGE";
 export const MESSAGE_LOAD = "MESSAGE_LOAD";
-
+export const MESSAGE_LOAD_FRONT = "MESSAGE_LOAD_FRONT";
+export const MESSAGE_RESET ="MESSAGE_RESET";
 export default ADD_MESSAGE;

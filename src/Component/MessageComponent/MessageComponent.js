@@ -7,8 +7,8 @@ class MessageComponent extends React.Component {
 
     constructor(props) {
         super(props)
-        this.state = { ListMessage: [] }
-        this.addMessage = this.addMessage.bind(this)
+        this.state = { ListMessage: this.props.ListMessage }
+
         
     }
 
@@ -16,12 +16,12 @@ class MessageComponent extends React.Component {
         return (
             <div>
                 <div class="row">
-                    <MessageVueComponent ListMessage = {this.state.ListMessage}/>
+                    <MessageVueComponent key="vueComponent" ListMessage = {this.props.ListMessage}/>
                 </div>
                 <div class="row">
                     <div class="col col-12">
                         <MessageButtonComponent
-                            addMessage={this.addMessage}
+                            addMessage={(e) =>this.addMessages(e)}
                             ListMessage={this.state.ListMessage}
                         />
                     </div>
@@ -30,7 +30,7 @@ class MessageComponent extends React.Component {
         );
     }
 
-    addMessage(e) {
+    addMessageFront(e) {
         let messageList = this.state.ListMessage;
         messageList.push(e)
 
@@ -38,6 +38,11 @@ class MessageComponent extends React.Component {
         console.log(this.state.ListMessage)
         console.log(e)
         console.log("gggg")
+    }
+    addMessages(e)
+    {
+        this.props.addMessage(e)
+        
     }
 
 
