@@ -16,7 +16,7 @@ class MessageVueComponent extends React.Component
         console.log(tabList);  
         const listMessage = this.props.ListMessage.map(
             (message,index)=>
-            <MessageText key={index} class="col col-6"
+            <MessageText key={index} 
                 Message ={message}
                 mesKey ={index}
              />
@@ -24,7 +24,7 @@ class MessageVueComponent extends React.Component
         console.log({listMessage})
         console.log({tabList})
 
-        return (<div>{listMessage}</div>)
+        return (<div class = "col col-12">{listMessage}</div>)
     }
 
 }

@@ -3,69 +3,71 @@ import { connect } from "react-redux";
 import { getDataMessage } from "../../js/action";
 import { addMessage } from '../../js/action';
 import MessageComponent from "../MessageComponent/MessageComponent";
+
 import store from '../../js/store';
 
 
-export class MessageControllerComponent extends Component{
-    constructor(props)
-    {
+export class MessageControllerComponent extends Component {
+    constructor(props) {
         super(props)
         console.log(this.props)
-        this.state = { messages : this.props.Lmessages}
-        
+        this.state = { messages: this.props.Lmessages }
+
     }
 
-    componentDidMount()
-    {
-        this.props.getDataMessage().then(prom =>{
-            
-            this.setState({messages : this.props.Lmessages})
+    componentDidMount() {
+        this.props.getDataMessage().then(prom => {
+
+            this.setState({ messages: this.props.Lmessages })
             console.log(this.state)
         });
-        
+
     }
-    componentDidUpdate()
-    {
-        
+    componentDidUpdate() {
+
     }
-    render()
-    {
-        
+    render() {
+
         const t = this.props.Lmessages
         console.log(t)
-        
-        return  < MessageComponent 
-        addMessage ={(e) => this.addMessages(e)}
-        key="liste"
-        ListMessage = { t } />
-        
+
+        return (
+                 < MessageComponent
+                    addMessage={(e) => this.addMessages(e)}
+                    key="liste"
+                    ListMessage={t} />
+           
+        )
+                    
+          
+
     }
-    addMessages(e){
+    addMessages(e) {
         this.props.addMessage(e)
-        this.setState({messages: this.props.Lmessages})
+        this.setState({ messages: this.props.Lmessages })
     }
 
 }
 
-const mapStateToProps = (state) =>{
+const mapStateToProps = (state) => {
     console.log(state.messages)
-    return{
-        Lmessages : state.messages
+    return {
+        Lmessages: state.messages
     };
 }
 
 const mapDispatchToProps = dispatch => {
     return {
-      // dispatching actions returned by action creators
-      getDatass: () => {
-          getDataMessage();
-          this.setState({messages:this.props.Lmessages})
+        // dispatching actions returned by action creators
+        getDatass: () => {
+            getDataMessage();
+            this.setState({ messages: this.props.Lmessages })
 
-      }
+        }
     }
 }
 
 export default connect(
     mapStateToProps,
-    {addMessage,getDataMessage})
-(MessageControllerComponent)
+    { addMessage, getDataMessage })
+    (MessageControllerComponent)

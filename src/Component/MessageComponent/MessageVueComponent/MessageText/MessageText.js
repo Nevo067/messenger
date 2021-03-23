@@ -1,4 +1,5 @@
 import React from 'react';
+import './MessageText.css';
 class MessageText extends React.Component
 {
     constructor(props)
@@ -11,7 +12,7 @@ class MessageText extends React.Component
     render()
     {
         return(
-            <div key={this.props.mesKey} class="border border-primary rounded-10">
+            <div key={this.props.mesKey} class="message border border-primary rounded-30 bg-primary text-white">
                 <p>{this.props.Message}</p>
             </div>
 

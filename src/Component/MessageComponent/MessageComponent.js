@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import MessageVueComponent from './MessageVueComponent/MessageVueComponent'
+import CompteComponent from "./CompteComponent/CompteComponent";
+
 
 import MessageButtonComponent from './MessageButtonComponent';
 class MessageComponent extends React.Component {
@@ -14,16 +16,22 @@ class MessageComponent extends React.Component {
 
     render() {
         return (
-            <div>
-                <div class="row">
-                    <MessageVueComponent key="vueComponent" ListMessage = {this.props.ListMessage}/>
+            <div class="row">
+                <div class="col col-3">
+                    <CompteComponent />
                 </div>
-                <div class="row">
-                    <div class="col col-12">
-                        <MessageButtonComponent
-                            addMessage={(e) =>this.addMessages(e)}
-                            ListMessage={this.state.ListMessage}
-                        />
+                <div class="col col-9">
+                    <div class="row">
+
+                        <MessageVueComponent key="vueComponent" ListMessage={this.props.ListMessage} />
+                    </div>
+                    <div class="row">
+                        <div class="col col-lg">
+                            <MessageButtonComponent
+                                addMessage={(e) => this.addMessages(e)}
+                                ListMessage={this.state.ListMessage}
+                            />
+                        </div>
                     </div>
                 </div>
             </div>

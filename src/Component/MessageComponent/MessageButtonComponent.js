@@ -14,7 +14,7 @@ class MessageButtonComponent extends React.Component
         return (
             <form >
                 <textarea class="form-control"value = {this.state.newMessage} onChange ={(e)=>this.handleChangeTextArea(e)}/>
-                <input type="button" class="btn btn-success form-control" onClick={(e)=>this.SendMessage(e)}></input>
+                <input type="button" value="envoyer" class="btn btn-success form-control" onClick={(e)=>this.SendMessage(e)}></input>
             </form>
         )
     }
@@ -27,7 +27,6 @@ class MessageButtonComponent extends React.Component
     SendMessage(e)
     {
         console.log(this.state.newMessage)
-        console.log(this.props.addMessage(this.state.newMessage))
         this.props.addMessage(this.state.newMessage);
         e.preventDefault();
     }
