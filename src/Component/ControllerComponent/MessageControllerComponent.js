@@ -3,6 +3,8 @@ import { connect } from "react-redux";
 import { getDataMessage } from "../../js/action";
 import { addMessage } from '../../js/action';
 import MessageComponent from "../MessageComponent/MessageComponent";
+import NavbarComponent from "../NavbarComponent/NavbarComponent";
+import { Route,BrowserRouter as Router,Switch } from "react-router-dom";
 
 import store from '../../js/store';
 
@@ -11,7 +13,7 @@ export class MessageControllerComponent extends Component {
     constructor(props) {
         super(props)
         console.log(this.props)
-        this.state = { messages: this.props.Lmessages }
+        this.state = { messages: [] }
 
     }
 
@@ -31,11 +33,13 @@ export class MessageControllerComponent extends Component {
         const t = this.props.Lmessages
         console.log(t)
 
-        return (
-                 < MessageComponent
-                    addMessage={(e) => this.addMessages(e)}
-                    key="liste"
-                    ListMessage={t} />
+        return (<div>
+                        
+                        <MessageComponent
+                            addMessage={(e) => this.addMessages(e)}
+                            key="liste"
+                            ListMessage={t} />
+                </div>
            
         )
                     
