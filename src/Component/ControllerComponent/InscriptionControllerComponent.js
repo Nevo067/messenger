@@ -1,7 +1,8 @@
 import { Component } from "react";
 import { connect } from "react-redux";
-import { getDataMessage } from "../../js/action";
+import { getDataMessage,getDataCompte,postCompte,resetCompte } from "../../js/action";
 import { addMessage } from '../../js/action';
+import InscriptionComponent from '../InscriptionComponent/InscriptionComponent'
 
 class InscriptionControllerComponent extends Component{
     constructor(props)
@@ -10,16 +11,39 @@ class InscriptionControllerComponent extends Component{
         this.state ={comptes: []}
 
     }
-    
+    componentDidMount()
+    {
+        this.props.getDataCompte().then(
+            this.setState({compte : this.props.comptesM})
+        )
+    }
+    render()
+    {
+        return (<div>
+            <InscriptionComponent 
+            addCompte ={(e) => this.addCompte(e)}/>
+        </div>)
+    }
+    addCompte(newUser)
+    {
+        this.props.postCompte(newUser).then(
+            
+        );
+        this.props.resetCompte();
+        this.props.getDataMessage();
+
+    }
     
 }
+
 const mapStateToProps = (state) => {
     console.log(state.messages)
     return {
-        Lmessages: state.compte
+        comptesM: state.compte
     };
 }
 export default connect(
     mapStateToProps,
-    { addMessage, getDataMessage })
+    { addMessage, getDataMessage,getDataCompte,postCompte,resetCompte })
     (InscriptionControllerComponent)
+

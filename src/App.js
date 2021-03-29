@@ -6,7 +6,7 @@ import { Route,BrowserRouter as Router,Switch } from "react-router-dom";
  */
 import  MessageControllerComponent  from './Component/ControllerComponent/MessageControllerComponent';
 import NavbarComponent from './Component/NavbarComponent/NavbarComponent'
-import InscriptionComponent from './Component/InscriptionComponent/InscriptionComponent'
+import InscriptionControllerComponent from './Component/ControllerComponent/InscriptionControllerComponent'
 
 function App() {
   return (
@@ -17,7 +17,7 @@ function App() {
     <Switch>
       <Route path="/" exact component={MessageControllerComponent}/>
       <Route path ="/inscription">
-        <InscriptionComponent />
+        <InscriptionControllerComponent />
       </Route>
     </Switch>
       

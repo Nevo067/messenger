@@ -1,5 +1,5 @@
 import { act } from 'react-dom/test-utils';
-import ADD_MESSAGE, { MESSAGE_LOAD, MESSAGE_LOAD_FRONT,COMPTE_LOAD, COMPTE_RESET } from '../constant/index';
+import ADD_MESSAGE, { MESSAGE_LOAD, MESSAGE_LOAD_FRONT,COMPTE_LOAD, COMPTE_RESET,COMPTE_ADD, MESSAGE_RESET } from '../constant/index';
 
 const initialState = {
     messages: [],
@@ -25,15 +25,24 @@ function rootReducer(state = initialState,action)
                 ...state,
                 comptes: state.comptes.concat(action.payload)
             }
+        case COMPTE_ADD:
+            return Object.assign({},state,{
+                comptes:[state.comptes].concat(action.payload)
+            });
         case COMPTE_RESET:
             return {
                 ...state,
                 comptes: []
             }
+        case MESSAGE_RESET:
+            return{
+                ...state,
+                messages:[]
+            }
         default:
             break;
     }
-
+    return state;
     /*
     if(action.type == ADD_MESSAGE)
     {

@@ -7,6 +7,9 @@ class InscriptionComponent extends Component
     {
         super(props)
         this.state = {login:"",password:""}
+        this.loginChange = this.loginChange.bind(this)
+        this.passwordChange = this.passwordChange.bind(this);
+        this.postUser = this.postUser.bind(this);
     }
 
     render()
@@ -16,14 +19,14 @@ class InscriptionComponent extends Component
 
                 <div class="form-group row">
                     <label for="login" class="col col-3" >Login</label>
-                    <input id="login" value={this.state.password} class="col col-lg form-control-lg" onChange={this.loginChange} type="text"/>
+                    <input id="login" value={this.state.login} class="col col-lg form-control-lg" onChange={this.loginChange} type="text"/>
                 </div>
                 <div class="form-group row">
                     <label for="password" class="col col-3">Password</label>
-                    <input id="password" value={this.state.password} class="col col-lg form-control-lg" onChange={this.loginChange} type="text"/>
+                    <input id="password" value={this.state.password} class="col col-lg form-control-lg" onChange={this.passwordChange} type="text"/>
                 </div>
                 <div class="row align-self-center ">
-                    <input type="button" value="Envoyer" class="col col-lg form-control btn btn-success"/>
+                    <input type="button" value="Envoyer" onClick={this.postUser()} class="col col-lg form-control btn btn-success"/>
                 </div>
             </form>
         )
@@ -41,6 +44,10 @@ class InscriptionComponent extends Component
     getUser()
     {
         return {login:this.state.login,password:this.state.password}
+    }
+    postUser()
+    {
+        this.props.addCompte(this.getUser)
     }
 }
 export default InscriptionComponent;

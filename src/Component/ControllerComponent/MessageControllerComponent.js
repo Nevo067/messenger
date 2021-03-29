@@ -54,7 +54,6 @@ export class MessageControllerComponent extends Component {
 }
 
 const mapStateToProps = (state) => {
-    console.log(state.messages)
     return {
         Lmessages: state.messages
     };
