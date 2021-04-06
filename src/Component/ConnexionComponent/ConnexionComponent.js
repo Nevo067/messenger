@@ -1,7 +1,5 @@
 import { Component } from "react";
-
-
-class InscriptionComponent extends Component
+class ConnexionComponent extends Component
 {
     constructor(props)
     {
@@ -16,18 +14,18 @@ class InscriptionComponent extends Component
 
     render()
     {
-        return(
+        return (
             <form>
                 <div class="form-group row">
                     <label for="login" class="col col-3" >Login</label>
-                    <input id="login" value={this.state.login} class="col col-lg form-control-lg" onChange={this.loginChange} type="text"/>
+                    <input id="login" value={this.state.login} class="col col-lg form-control-lg" onChange={this.loginChange} type="text" />
                 </div>
                 <div class="form-group row">
                     <label for="password" class="col col-3">Password</label>
-                    <input id="password" value={this.state.password} class="col col-lg form-control-lg" onChange={this.passwordChange} type="text"/>
+                    <input id="password" value={this.state.password} class="col col-lg form-control-lg" onChange={this.passwordChange} type="text" />
                 </div>
                 <div class="row align-self-center ">
-                    <input type="button" value="Envoyer" onClick={this.postUser} class="col col-lg form-control btn btn-success"/>
+                    <input type="button" value="Connexion" onClick={this.postUser} class="col col-lg form-control btn btn-success" />
                 </div>
             </form>
         )
@@ -35,7 +33,7 @@ class InscriptionComponent extends Component
     //Change the value of login
     loginChange(event)
     {
-        console.log(event)
+        
         this.setState({login:event.target.value})
     }
     //Change the value of password
@@ -53,5 +51,5 @@ class InscriptionComponent extends Component
     {   
         this.props.addCompte(this.getUser())
     }
-}
-export default InscriptionComponent;
+
+} 

@@ -9,9 +9,11 @@ export function addMessage(payload){
 
 export function getDataMessage(){
     return function(dispatch) {
-    return fetch("http://127.0.0.1:5000/User")
+        console.log("dataMessage")
+    return fetch("http://127.0.0.1:5000/User",{mode:'cors'})
     .then(response => response.json())
     .then(json => {
+        dispatch({type : MESSAGE_RESET, payload : ""})
         json.forEach(element => {
             console.log(element.login)
             dispatch({type : MESSAGE_LOAD, payload : element.login});
@@ -22,7 +24,7 @@ export function getDataMessage(){
 }
 export function getDataCompte(){
     return function(dispatch) {
-    return fetch("http://127.0.0.1:5000/User")
+    return fetch("http://127.0.0.1:5000/User",{mode:'cors'})
     .then(response => response.json())
     .then(json => {
         json.forEach(element => {
@@ -40,9 +42,10 @@ export function postCompte(payload)
         const request ={
             method:'POST',
             headers:{'Content-Type': 'application/json'},
-            body:JSON.stringify({text:payload.text})
+            body:JSON.stringify({login:payload.login,password:payload.password})
+            
         };
-        return fetch('http://127.0.0.1:5000/User',request)
+        return fetch('http://127.0.0.1:5000/User',request,{mode:'cors'})
         .then(response => response.json())
         
     }
@@ -73,7 +76,7 @@ export function addPostMessage(payload)
         };
         fetch('',request)
         .then(response => response.json())
-        .then()
+
     }
 }
 
