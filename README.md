@@ -1,4 +1,9 @@
-# Getting Started with Create React App
+# AtomMensenger
+AtomMessenger is a site allowing to chat with several members of a community. 
+This is the front end of this application. 
+It is possible that the purpose of this application is to change
+
+## Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
