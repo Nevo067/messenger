@@ -49,7 +49,7 @@ class ConnexionComponent extends Component
     //send the user created by the form 
     postUser()
     {   
-        this.props.Connexion(this.getUser())
+        this.props.Connexion(this.getUser().login,this.getUser.password)
     }
 
 } 
