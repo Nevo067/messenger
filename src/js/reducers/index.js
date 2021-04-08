@@ -1,9 +1,10 @@
 import { act } from 'react-dom/test-utils';
-import ADD_MESSAGE, { MESSAGE_LOAD, MESSAGE_LOAD_FRONT,COMPTE_LOAD, COMPTE_RESET,COMPTE_ADD, MESSAGE_RESET } from '../constant/index';
+import ADD_MESSAGE, { MESSAGE_LOAD, MESSAGE_LOAD_FRONT,COMPTE_LOAD, COMPTE_RESET,COMPTE_ADD, MESSAGE_RESET,USER_LOAD } from '../constant/index';
 
 const initialState = {
     messages: [],
-    comptes:[]
+    comptes:[],
+    user:[]
 };
 
 function rootReducer(state = initialState,action)
@@ -29,6 +30,11 @@ function rootReducer(state = initialState,action)
             return Object.assign({},state,{
                 comptes:[state.comptes].concat(action.payload)
             });
+        case USER_LOAD:
+            return{
+                ...state,
+                user:action.payload
+            } 
         case COMPTE_RESET:
             return {
                 ...state,
