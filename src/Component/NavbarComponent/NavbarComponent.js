@@ -25,7 +25,7 @@ class NavbarComponent extends Component {
                                 <Link class="nav-link" to="/inscription">Inscription</Link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Connexion</a>
+                                <Link class="nav-link" to="/connexion">Inscription</Link>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link disabled" href="#">Disabled</a>

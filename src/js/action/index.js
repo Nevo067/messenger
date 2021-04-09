@@ -85,17 +85,23 @@ export function getUserByLoginPass(login,password)
 {
     return function(dispatch)
     {
-        return fetch(`http://127.0.0.1:5000/User/IsExist/${login}/${password}`,{mode:'cors'})
+        const request ={
+            method:'POST',
+            headers:{'Content-Type': 'application/json'},
+            body:JSON.stringify({login:login,password:password})
+            
+        };
+        return fetch(`http://127.0.0.1:5000/User/IsExist/`,{mode:'cors'})
         .then(response => response.json())
         .then(user=>{
             if(user != false)
             {
                 dispatch({type : USER_LOAD,payload : user})
-                return true
+                return true;
             }
             else
             {
-                return true;
+                return false;
             }
            
         });

@@ -7,6 +7,7 @@ import { Route,BrowserRouter as Router,Switch } from "react-router-dom";
 import  MessageControllerComponent  from './Component/ControllerComponent/MessageControllerComponent';
 import NavbarComponent from './Component/NavbarComponent/NavbarComponent'
 import InscriptionControllerComponent from './Component/ControllerComponent/InscriptionControllerComponent'
+import ConnexionControllerComponent from './Component/ControllerComponent/ConnexionControllerComponent'
 
 function App() {
   return (
@@ -18,6 +19,9 @@ function App() {
       <Route path="/" exact component={MessageControllerComponent}/>
       <Route path ="/inscription">
         <InscriptionControllerComponent />
+      </Route>
+      <Route path ="/connexion">
+        <ConnexionControllerComponent />
       </Route>
     </Switch>
       

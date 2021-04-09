@@ -5,7 +5,7 @@ class ConnexionComponent extends Component
     {
         super(props)
         //init
-        this.state = {login:"",password:""}
+        this.state = {login:"",password:"",user:this.props.user}
         //bind of method
         this.loginChange = this.loginChange.bind(this)
         this.passwordChange = this.passwordChange.bind(this);
@@ -15,6 +15,7 @@ class ConnexionComponent extends Component
     render()
     {
         return (
+            <div>
             <form>
                 <div class="form-group row">
                     <label for="login" class="col col-3" >Login</label>
@@ -27,7 +28,9 @@ class ConnexionComponent extends Component
                 <div class="row align-self-center ">
                     <input type="button" value="Connexion" onClick={this.postUser} class="col col-lg form-control btn btn-success" />
                 </div>
+                <p>Vous etes connecter  </p>
             </form>
+            </div>
         )
     }
     //Change the value of login
@@ -53,3 +56,4 @@ class ConnexionComponent extends Component
     }
 
 } 
+export default ConnexionComponent

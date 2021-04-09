@@ -1,19 +1,23 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import { getDataCompte,getUserByLoginPass } from "../../js/action";
-import {ConnexionComponent} from "../ConnexionComponent/ConnexionComponent"
+import ConnexionComponent from "../ConnexionComponent/ConnexionComponent"
 
 class ConnexionControllerComponent extends Component{
     constructor(props)
     {
         super(props)
-        this.state = {compte :[]}
+        this.state = {compte :[],user:{}}
         this.verifCompte = this.verifCompte.bind(this)
     }
     render()
     {
         return (<div>
-            <ConnexionComponent Connexion ={this.verifCompte} />
+            <ConnexionComponent 
+                Connexion ={this.verifCompte}
+                user = {this.state.user}
+                key="connexion"
+             />
         </div>)
     }
     componentDidMount()
@@ -21,16 +25,20 @@ class ConnexionControllerComponent extends Component{
         this.props.getDataCompte().then(
             this.setState({compte : this.props.comptesM})
         )
+        
     }
     verifCompte(login,password)
     {
-        getUserByLoginPass(login,password);
+        this.props.getUserByLoginPass(login,password);
     }
 }
 const mapStateToProps = (state)=>{
     return {
-        compte : state.compte
+        compte : state.compte,
+        user:state.user
     };
 }
 //TODO Faire methode Connnexion 
-export default connect(mapStateToProps,{getDataCompte,getUserByLoginPass})(ConnexionControllerComponent)
+export default connect(mapStateToProps,
+    {getDataCompte,getUserByLoginPass})
+    (ConnexionControllerComponent)
