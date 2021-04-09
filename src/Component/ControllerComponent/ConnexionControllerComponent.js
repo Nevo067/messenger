@@ -23,8 +23,9 @@ class ConnexionControllerComponent extends Component{
     componentDidMount()
     {
         this.props.getDataCompte().then(
-            this.setState({compte : this.props.comptesM})
+            this.setState({compte : this.props.compte})
         )
+        this.setState({user : this.props.user})
         
     }
     verifCompte(login,password)

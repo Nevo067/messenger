@@ -6,6 +6,7 @@ class ConnexionComponent extends Component
         super(props)
         //init
         this.state = {login:"",password:"",user:this.props.user}
+        console.log(this.state.user)
         //bind of method
         this.loginChange = this.loginChange.bind(this)
         this.passwordChange = this.passwordChange.bind(this);
