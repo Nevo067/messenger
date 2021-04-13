@@ -21,7 +21,7 @@ function App() {
         <InscriptionControllerComponent />
       </Route>
       <Route path ="/connexion">
-        <ConnexionControllerComponent />
+        <ConnexionControllerComponent key="ControllerConnexion" />
       </Route>
     </Switch>
       

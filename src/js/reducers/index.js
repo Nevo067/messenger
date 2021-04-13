@@ -1,10 +1,11 @@
 import { act } from 'react-dom/test-utils';
-import ADD_MESSAGE, { MESSAGE_LOAD, MESSAGE_LOAD_FRONT,COMPTE_LOAD, COMPTE_RESET,COMPTE_ADD, MESSAGE_RESET,USER_LOAD } from '../constant/index';
+import ADD_MESSAGE, { MESSAGE_LOAD, MESSAGE_LOAD_FRONT,COMPTE_LOAD, COMPTE_RESET,COMPTE_ADD, MESSAGE_RESET,USER_LOAD,IS_CONNECT_TRUE,IS_CONNECT_FALSE } from '../constant/index';
 
 const initialState = {
     messages: [],
     comptes:[],
-    user:[]
+    user:{},
+    isConnect:false
 };
 
 function rootReducer(state = initialState,action)
@@ -16,38 +17,54 @@ function rootReducer(state = initialState,action)
                 messages: [...state.messages].concat(action.payload)
             });
         case MESSAGE_LOAD:
-            console.log("cela marche")
+            console.log("le message est load")
             return {
                 ...state,
                 messages: state.messages.concat(action.payload)
-            }
+            };
         case COMPTE_LOAD:
             return {
                 ...state,
                 comptes: state.comptes.concat(action.payload)
-            }
+            };
         case COMPTE_ADD:
             return Object.assign({},state,{
                 comptes:[state.comptes].concat(action.payload)
             });
         case USER_LOAD:
+            console.log(action.payload)
             return{
                 ...state,
-                user:action.payload
-            } 
+                user:action.payload,
+                isConnect:true
+            }; 
         case COMPTE_RESET:
             return {
                 ...state,
                 comptes: []
-            }
+            };
         case MESSAGE_RESET:
             return{
                 ...state,
                 messages:[]
-            }
+            };
+        //Change the variable that check if the user is connected
+        case IS_CONNECT_FALSE:
+            return{
+                ...state,
+                isConnect:false
+            };
+        case IS_CONNECT_TRUE:
+            console.log(initialState.isConnect)
+            console.log("isConnect")
+            return{
+                ...state,
+                isConnect:true
+            };
         default:
             break;
     }
+    console.log(state)
     return state;
     /*
     if(action.type == ADD_MESSAGE)

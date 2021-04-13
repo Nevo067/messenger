@@ -6,4 +6,6 @@ export const COMPTE_LOAD ="COMPTE_LOAD";
 export const COMPTE_RESET ="COMPTE_RESET";
 export const COMPTE_ADD ="COMPTE_ADD";
 export const USER_LOAD = "USER_LOAD";
+export const IS_CONNECT_TRUE ="IS_CONNECT_TRUE";
+export const IS_CONNECT_FALSE ="IS_CONNECT_FALSE";
 export default ADD_MESSAGE;

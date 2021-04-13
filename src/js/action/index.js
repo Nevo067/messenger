@@ -1,4 +1,4 @@
-import {ADD_MESSAGE,MESSAGE_LOAD,MESSAGE_RESET,COMPTE_RESET, USER_LOAD} from '../constant/index';
+import {ADD_MESSAGE,MESSAGE_LOAD,MESSAGE_RESET,COMPTE_RESET, USER_LOAD, IS_CONNECT_TRUE} from '../constant/index';
 export function addMessage(payload){
     return function(dispatch){
         console.log("se lance")
@@ -91,19 +91,17 @@ export function getUserByLoginPass(login,password)
             body:JSON.stringify({login:login,password:password})
             
         };
-        return fetch(`http://127.0.0.1:5000/User/IsExist/`,{mode:'cors'})
+        return fetch(`http://127.0.0.1:5000/User/IsExist`,request,{mode:'cors'})
         .then(response => response.json())
         .then(user=>{
-            if(user != false)
+            if(user)
             {
-                dispatch({type : USER_LOAD,payload : user})
-                return true;
+                console.log("cela marche et c'est lancer")
+                console.log(login)
+                dispatch({type : USER_LOAD,payload:{login:login}})
+                
+                
             }
-            else
-            {
-                return false;
-            }
-           
         });
     }
            
