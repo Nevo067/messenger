@@ -13,10 +13,16 @@ class CompteComponent extends Component
 
     render()
     {
-        return <div>
+        const comptes = this.props.comptes.map((compte,index)=>
+            <OneCompteComponent
+            key = {"compte"+index}
+            compte = {compte}
+             />
+        )
+        return (<div>
         <h3>Contact</h3>
-        <OneCompteComponent />;
-        </div>
+        {comptes}
+        </div>)
     }
 }
 

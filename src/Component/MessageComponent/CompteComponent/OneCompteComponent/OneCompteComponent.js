@@ -9,7 +9,7 @@ class OneCompteComponent extends Component
     render()
     {
         return(
-            <p class ="bg-light compte">Nom</p>
+            <p class ="bg-light compte">{ this.props.compte}</p>
 
         )
     }

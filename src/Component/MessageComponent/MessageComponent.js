@@ -10,6 +10,7 @@ class MessageComponent extends React.Component {
     constructor(props) {
         super(props)
         this.state = { ListMessage: this.props.ListMessage }
+        //TODO:Mettre les comptes separement des messages
 
         
     }
@@ -18,7 +19,7 @@ class MessageComponent extends React.Component {
         return (
             <div class="row">
                 <div class="col col-3">
-                    <CompteComponent />
+                    <CompteComponent comptes = {this.props.ListMessage} />
                 </div>
                 <div class="col col-9">
                     <div class="row">

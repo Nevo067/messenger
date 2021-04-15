@@ -38,7 +38,8 @@ export class MessageControllerComponent extends Component {
                         <MessageComponent
                             addMessage={(e) => this.addMessages(e)}
                             key="liste"
-                            ListMessage={t} />
+                            ListMessage={t}
+                            ListCompte = {this.props.comptes} />
                 </div>
            
         )
@@ -55,7 +56,8 @@ export class MessageControllerComponent extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        Lmessages: state.messages
+        Lmessages: state.messages,
+        comptes: state.comptes 
     };
 }
 
