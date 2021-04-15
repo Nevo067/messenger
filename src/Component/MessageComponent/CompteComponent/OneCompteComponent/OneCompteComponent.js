@@ -9,7 +9,10 @@ class OneCompteComponent extends Component
     render()
     {
         return(
-            <p class ="bg-light compte">{ this.props.compte}</p>
+            <div class ="row  bg-light compte">
+                <p>{this.props.compte}</p><br/>
+                <p>coucou</p>
+            </div>
 
         )
     }
