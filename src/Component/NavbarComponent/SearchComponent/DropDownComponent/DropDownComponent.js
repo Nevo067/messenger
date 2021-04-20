@@ -9,9 +9,7 @@ class DropDownComponent extends Component{
 
     render()
     {
-        const listCompte = this.props.comptes.map((compte,index)=>
-            <DropElementComponent compte={compte} />
-        )
+        const listCompte = this.filterDropDownElement(this.props.searchWord)
         
             
         
@@ -25,6 +23,14 @@ class DropDownComponent extends Component{
                 <li class="dropdown-item" >test1</li>
             </ul>
             </div>
+        )
+    }
+    filterDropDownElement(mess)
+    {
+        return this.props.comptes.filter(x => (x.search(mess)!== -1)).map((compte,index)=>
+            
+            <DropElementComponent compte={compte} key={"dropSearch"+index} />
+           
         )
     }
 }

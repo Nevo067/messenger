@@ -6,16 +6,25 @@ class SearchComponent extends Component
     constructor(props)
     {
         super(props)
+        this.state ={compteSearch :""}
+        this.changeCompteSearch = this.changeCompteSearch.bind(this);
     }
     render()
     {
         return(
             
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"></input>
-                <DropDownComponent comptes= {this.props.comptes}/> 
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value={this.state.compteSearch} onChange={this.changeCompteSearch}></input>
+                <DropDownComponent 
+                comptes= {this.props.comptes}
+                searchWord = {this.state.compteSearch}
+                /> 
             </form>
         )
+    }
+    changeCompteSearch(event)
+    {
+        this.setState({compteSearch:event.target.value})
     }
 }
 export default SearchComponent
