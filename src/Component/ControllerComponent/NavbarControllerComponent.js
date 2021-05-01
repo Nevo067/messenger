@@ -14,7 +14,11 @@ class NavbarControllerComponent extends Component{
     render()
     {
         return (
-            <NavbarComponent comptes = {this.props.comptes}/>
+            <NavbarComponent 
+            comptes = {this.props.comptes}
+            isConnected = {this.props.isConnected}
+
+            />
         )
     }
     componentDidMount()

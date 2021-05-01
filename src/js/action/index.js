@@ -106,6 +106,15 @@ export function getUserByLoginPass(login,password)
     }
            
 }
+//Function to create a conversation
+export function beginAConversation()
+{
+    return function(dispatch)
+    {
+        console.log("onclick marche")
+    }
+    
+}
 
 
 

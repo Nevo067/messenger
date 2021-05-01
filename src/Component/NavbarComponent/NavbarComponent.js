@@ -32,7 +32,12 @@ class NavbarComponent extends Component {
                                 <a class="nav-link disabled" href="#">Disabled</a>
                             </li>
                         </ul>
-                        <SearchComponent comptes = {this.props.comptes} />
+                        { 
+                        this.props.isConnected ? 
+                        <SearchComponent comptes = {this.props.comptes} /> : 
+                        <p></p>
+                        }
+                        
                     </div>
                 </div>
         )

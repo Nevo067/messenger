@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import { getDataMessage } from "../../js/action";
 import { addMessage } from '../../js/action';
 import MessageComponent from "../MessageComponent/MessageComponent";
+import {beginAConversation} from '../../js/action'
 import NavbarComponent from "../NavbarComponent/NavbarComponent";
 import { Route,BrowserRouter as Router,Switch } from "react-router-dom";
 
@@ -14,6 +15,7 @@ export class MessageControllerComponent extends Component {
         super(props)
         console.log(this.props)
         this.state = { messages: [] }
+        this.beginAConv = this.beginAConv.bind(this)
 
     }
 
@@ -37,6 +39,7 @@ export class MessageControllerComponent extends Component {
                         
                         <MessageComponent
                             addMessage={(e) => this.addMessages(e)}
+                            beginAConversation={(e)=>this.beginAConv(e)}
                             key="liste"
                             ListMessage={t}
                             ListCompte = {this.props.comptes} />
@@ -50,6 +53,10 @@ export class MessageControllerComponent extends Component {
     addMessages(e) {
         this.props.addMessage(e)
         this.setState({ messages: this.props.Lmessages })
+    }
+    beginAConv(e)
+    {
+        this.props.beginAConversation()
     }
 
 }
@@ -74,5 +81,5 @@ const mapDispatchToProps = dispatch => {
 
 export default connect(
     mapStateToProps,
-    { addMessage, getDataMessage })
+    { addMessage, getDataMessage,beginAConversation })
     (MessageControllerComponent)

@@ -8,4 +8,5 @@ export const COMPTE_ADD ="COMPTE_ADD";
 export const USER_LOAD = "USER_LOAD";
 export const IS_CONNECT_TRUE ="IS_CONNECT_TRUE";
 export const IS_CONNECT_FALSE ="IS_CONNECT_FALSE";
+export const BEGIN_A_CONVERSATION="BEGIN_A_CONVERSATION"
 export default ADD_MESSAGE;

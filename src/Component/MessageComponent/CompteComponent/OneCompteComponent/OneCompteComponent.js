@@ -9,7 +9,7 @@ class OneCompteComponent extends Component
     render()
     {
         return(
-            <div class ="row  bg-light compte">
+            <div class ="row  compte" onClick = {()=>this.props.beginAConversation()}>
                 <p>{this.props.compte}</p><br/>
                 <p>coucou</p>
             </div>

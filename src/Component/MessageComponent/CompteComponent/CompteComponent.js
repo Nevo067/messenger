@@ -15,6 +15,7 @@ class CompteComponent extends Component
     {
         const comptes = this.props.comptes.map((compte,index)=>
             <OneCompteComponent
+            beginAConversation  = {this.props.beginAconversation}
             key = {"compte"+index}
             compte = {compte}
              />
