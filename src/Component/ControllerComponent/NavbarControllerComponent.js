@@ -29,7 +29,8 @@ class NavbarControllerComponent extends Component{
 }
 const mapStateToProps = (state) =>{
     return {
-        comptes : state.messages
+        comptes : state.messages,
+        isConnected: state.isConnect
     };
     
 }

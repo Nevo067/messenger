@@ -64,7 +64,9 @@ export class MessageControllerComponent extends Component {
 const mapStateToProps = (state) => {
     return {
         Lmessages: state.messages,
-        comptes: state.comptes 
+        comptes: state.comptes,
+        conv:state.Actualconv, 
+        user:state.user
     };
 }
 

@@ -1,4 +1,4 @@
-import {ADD_MESSAGE,MESSAGE_LOAD,MESSAGE_RESET,COMPTE_RESET, USER_LOAD, IS_CONNECT_TRUE} from '../constant/index';
+import {ADD_MESSAGE,MESSAGE_LOAD,MESSAGE_RESET,COMPTE_RESET, USER_LOAD, IS_CONNECT_TRUE,BEGIN_A_CONVERSATION} from '../constant/index';
 export function addMessage(payload){
     return function(dispatch){
         console.log("se lance")
@@ -94,11 +94,12 @@ export function getUserByLoginPass(login,password)
         return fetch(`http://127.0.0.1:5000/User/IsExist`,request,{mode:'cors'})
         .then(response => response.json())
         .then(user=>{
-            if(user)
-            {
+            if(user !== false)
+            {   
+                
                 console.log("cela marche et c'est lancer")
-                console.log(login)
-                dispatch({type : USER_LOAD,payload:{login:login}})
+                console.log(user)
+                dispatch({type : USER_LOAD,payload:user})
                 
                 
             }
@@ -107,11 +108,21 @@ export function getUserByLoginPass(login,password)
            
 }
 //Function to create a conversation
-export function beginAConversation()
+export function beginAConversation(id1,id2)
 {
     return function(dispatch)
     {
-        console.log("onclick marche")
+        const request ={
+            method:'POST',
+            headers:{'Content-Type': 'application/json'},
+            body:JSON.stringify({id1:id1,id2:id2})
+            
+        };
+        return fetch(`http://127.0.0.1:5000/Conv/CreateConv`,request,{mode:'cors'})
+        .then(response => response.json())
+        .then(conv=>{
+            dispatch({type:BEGIN_A_CONVERSATION ,payload:conv}) 
+        });
     }
     
 }
