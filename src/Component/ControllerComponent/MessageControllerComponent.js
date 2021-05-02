@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getDataMessage } from "../../js/action";
+import { getDataMessage,getDataCompte } from "../../js/action";
 import { addMessage } from '../../js/action';
 import MessageComponent from "../MessageComponent/MessageComponent";
 import {beginAConversation} from '../../js/action'
@@ -25,6 +25,7 @@ export class MessageControllerComponent extends Component {
             this.setState({ messages: this.props.Lmessages })
             console.log(this.state)
         });
+        this.props.getDataCompte()
 
     }
     componentDidUpdate() {
@@ -83,5 +84,5 @@ const mapDispatchToProps = dispatch => {
 
 export default connect(
     mapStateToProps,
-    { addMessage, getDataMessage,beginAConversation })
+    { addMessage, getDataMessage,beginAConversation,getDataCompte })
     (MessageControllerComponent)

@@ -9,12 +9,13 @@ class OneCompteComponent extends Component
     render()
     {
         return(
-            <div class ="row  compte" onClick = {()=>this.props.beginAConversation()}>
+            <div class ="row  compte" onClick = {()=>this.props.beginAConversation(this.props.compte.id)}>
                 <p>{this.props.compte}</p><br/>
                 <p>coucou</p>
             </div>
 
         )
+        
     }
 }
 export default OneCompteComponent;

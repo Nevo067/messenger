@@ -13,6 +13,10 @@ class CompteComponent extends Component
 
     render()
     {
+        
+        
+            
+        //TODO A regler
         const comptes = this.props.comptes.map((compte,index)=>
             <OneCompteComponent
             beginAConversation  = {this.props.beginAconversation}
@@ -22,7 +26,7 @@ class CompteComponent extends Component
         )
         return (<div>
         <h3>Contact</h3>
-        {comptes}
+        {/*comptes*/}
         </div>)
     }
 }

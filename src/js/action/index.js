@@ -1,4 +1,4 @@
-import {ADD_MESSAGE,MESSAGE_LOAD,MESSAGE_RESET,COMPTE_RESET, USER_LOAD, IS_CONNECT_TRUE,BEGIN_A_CONVERSATION} from '../constant/index';
+import {ADD_MESSAGE,MESSAGE_LOAD,MESSAGE_RESET,COMPTE_RESET, USER_LOAD, IS_CONNECT_TRUE,BEGIN_A_CONVERSATION,COMPTE_LOAD} from '../constant/index';
 export function addMessage(payload){
     return function(dispatch){
         console.log("se lance")
@@ -27,9 +27,10 @@ export function getDataCompte(){
     return fetch("http://127.0.0.1:5000/User",{mode:'cors'})
     .then(response => response.json())
     .then(json => {
+        dispatch({type : COMPTE_RESET, payload : ""})
         json.forEach(element => {
             console.log(element.login)
-            dispatch({type : MESSAGE_LOAD, payload : element.login});
+            dispatch({type : COMPTE_LOAD, payload : {id:element.id,login:element.login}});
         });
         
     });
