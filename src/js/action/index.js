@@ -122,6 +122,7 @@ export function beginAConversation(id1,id2)
         return fetch(`http://127.0.0.1:5000/Conv/CreateConv`,request,{mode:'cors'})
         .then(response => response.json())
         .then(conv=>{
+            console.log(conv)
             dispatch({type:BEGIN_A_CONVERSATION ,payload:conv}) 
         });
     }

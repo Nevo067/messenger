@@ -57,7 +57,7 @@ export class MessageControllerComponent extends Component {
     }
     beginAConv(e)
     {
-        this.props.beginAConversation()
+        this.props.beginAConversation(e,this.props.user.id)
     }
 
 }
@@ -66,7 +66,7 @@ const mapStateToProps = (state) => {
     return {
         Lmessages: state.messages,
         comptes: state.comptes,
-        conv:state.Actualconv, 
+        conv:state.ActualConv, 
         user:state.user
     };
 }

@@ -15,18 +15,24 @@ class CompteComponent extends Component
     {
         
         
-            
+        let ids =[]
+        let logins = []   
         //TODO A regler
-        const comptes = this.props.comptes.map((compte,index)=>
+        this.props.comptes.forEach(element => {
+            ids.push(element.id)
+            logins.push(element.login)
+        });
+        const comptes = logins.map((compte,index)=>
             <OneCompteComponent
             beginAConversation  = {this.props.beginAconversation}
             key = {"compte"+index}
-            compte = {compte}
+            compteId = {ids[index]}
+            compteLogin ={logins[index]}
              />
         )
         return (<div>
         <h3>Contact</h3>
-        {/*comptes*/}
+        {comptes}
         </div>)
     }
 }

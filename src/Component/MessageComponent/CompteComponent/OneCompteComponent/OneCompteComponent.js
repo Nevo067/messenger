@@ -9,8 +9,8 @@ class OneCompteComponent extends Component
     render()
     {
         return(
-            <div class ="row  compte" onClick = {()=>this.props.beginAConversation(this.props.compte.id)}>
-                <p>{this.props.compte}</p><br/>
+            <div class ="row  compte" onClick = {()=>this.props.beginAConversation(this.props.compteId)}>
+                <p>{this.props.compteLogin}</p><br/>
                 <p>coucou</p>
             </div>
 
