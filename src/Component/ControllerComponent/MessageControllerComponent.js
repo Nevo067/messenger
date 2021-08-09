@@ -8,6 +8,7 @@ import NavbarComponent from "../NavbarComponent/NavbarComponent";
 import { Route,BrowserRouter as Router,Switch } from "react-router-dom";
 
 import store from '../../js/store';
+import socket from "../../environment/socketConst";
 
 
 export class MessageControllerComponent extends Component {
@@ -25,11 +26,12 @@ export class MessageControllerComponent extends Component {
             this.setState({ messages: this.props.Lmessages })
             console.log(this.state)
         });
-        this.props.getDataCompte()
+        this.props.getDataCompte();
+        socket.on("text",()=>{console.log("test")});
 
     }
     componentDidUpdate() {
-
+        
     }
     render() {
 
@@ -59,7 +61,6 @@ export class MessageControllerComponent extends Component {
     {
         this.props.beginAConversation(e,this.props.user.id)
     }
-
 }
 
 const mapStateToProps = (state) => {
