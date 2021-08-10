@@ -1,5 +1,5 @@
 import apiIp from '../../environment/apiConst';
-import {ADD_MESSAGE,MESSAGE_LOAD,MESSAGE_RESET,COMPTE_RESET, USER_LOAD, IS_CONNECT_TRUE,BEGIN_A_CONVERSATION,COMPTE_LOAD, LOAD_CONVS} from '../constant/index';
+import {ADD_MESSAGE,MESSAGE_LOAD,MESSAGE_RESET,COMPTE_RESET, USER_LOAD, IS_CONNECT_TRUE,BEGIN_A_CONVERSATION,COMPTE_LOAD, LOAD_CONVS, CHANGE_CONV} from '../constant/index';
 export function addMessage(payload){
     return function(dispatch){
         console.log("se lance")
@@ -148,6 +148,15 @@ export function loadConv(idUser)
             dispatch({type:LOAD_CONVS ,payload:conv}) 
         });
     }
+}
+export function ChangeConv(id)
+{
+    return function(dispatch)
+    {
+    
+        dispatch({type:CHANGE_CONV ,payload:id})
+    }
+    
 }
 export function joinRoom()
 {

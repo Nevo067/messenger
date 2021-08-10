@@ -28,6 +28,7 @@ class CompteComponent extends Component
             key = {"compte"+index}
             compteId = {ids[index]}
             compteLogin ={logins[index]}
+            changeConv ={this.props.ChangeConv}
             />
         )
         return (<div>
