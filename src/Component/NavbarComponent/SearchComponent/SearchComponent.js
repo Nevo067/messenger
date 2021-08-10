@@ -14,11 +14,17 @@ class SearchComponent extends Component
         return(
             
             <form class="form-inline my-2 my-lg-0">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" value={this.state.compteSearch} onChange={this.changeCompteSearch}></input>
-                <DropDownComponent 
+            
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" data-toggle="dropdown" aria-haspopup="true"  value={this.state.compteSearch} onChange={this.changeCompteSearch}></input>
+            
+            
+            <DropDownComponent 
                 comptes= {this.props.comptes}
                 searchWord = {this.state.compteSearch}
-                /> 
+            /> 
+            
+                
+                
             </form>
         )
     }

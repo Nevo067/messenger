@@ -1,4 +1,5 @@
-import {ADD_MESSAGE,MESSAGE_LOAD,MESSAGE_RESET,COMPTE_RESET, USER_LOAD, IS_CONNECT_TRUE,BEGIN_A_CONVERSATION,COMPTE_LOAD} from '../constant/index';
+import apiIp from '../../environment/apiConst';
+import {ADD_MESSAGE,MESSAGE_LOAD,MESSAGE_RESET,COMPTE_RESET, USER_LOAD, IS_CONNECT_TRUE,BEGIN_A_CONVERSATION,COMPTE_LOAD, LOAD_CONVS} from '../constant/index';
 export function addMessage(payload){
     return function(dispatch){
         console.log("se lance")
@@ -127,6 +128,30 @@ export function beginAConversation(id1,id2)
         });
     }
     
+}
+//Conversation Method
+
+export function loadConv(idUser)
+{
+    return function(dispatch)
+    {
+        const request ={
+            method:'POST',
+            headers:{'Content-Type': 'application/json'},
+            body:JSON.stringify({Id:idUser})
+            
+        };
+        return fetch(apiIp+`/Conv/findUser`,request,{mode:'cors'})
+        .then(response => response.json())
+        .then(conv=>{
+            console.log(conv)
+            dispatch({type:LOAD_CONVS ,payload:conv}) 
+        });
+    }
+}
+export function joinRoom()
+{
+
 }
 
 

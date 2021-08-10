@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getDataMessage,getDataCompte } from "../../js/action";
+import { getDataMessage,getDataCompte,loadConv } from "../../js/action";
 import { addMessage } from '../../js/action';
 import MessageComponent from "../MessageComponent/MessageComponent";
 import {beginAConversation} from '../../js/action'
@@ -16,7 +16,8 @@ export class MessageControllerComponent extends Component {
         super(props)
         console.log(this.props)
         this.state = { messages: [] }
-        this.beginAConv = this.beginAConv.bind(this)
+        this.beginAConv = this.beginAConv.bind(this);
+        this.loadConvs = this.loadConvs.bind(this);
 
     }
 
@@ -27,6 +28,7 @@ export class MessageControllerComponent extends Component {
             console.log(this.state)
         });
         this.props.getDataCompte();
+        this.loadConvs();
         socket.on("text",()=>{console.log("test")});
 
     }
@@ -45,7 +47,9 @@ export class MessageControllerComponent extends Component {
                             beginAConversation={(e)=>this.beginAConv(e)}
                             key="liste"
                             ListMessage={t}
-                            ListCompte = {this.props.comptes} />
+                            ListCompte = {this.props.comptes}
+                            convs = {this.props.convs}
+                             />
                 </div>
            
         )
@@ -61,13 +65,18 @@ export class MessageControllerComponent extends Component {
     {
         this.props.beginAConversation(e,this.props.user.id)
     }
+    loadConvs()
+    {
+        this.props.loadConv(this.props.user.id)
+    }
 }
 
 const mapStateToProps = (state) => {
     return {
         Lmessages: state.messages,
         comptes: state.comptes,
-        conv:state.ActualConv, 
+        conv:state.ActualConv,
+        convs:state.convs, 
         user:state.user
     };
 }
@@ -85,5 +94,5 @@ const mapDispatchToProps = dispatch => {
 
 export default connect(
     mapStateToProps,
-    { addMessage, getDataMessage,beginAConversation,getDataCompte })
+    { addMessage, getDataMessage,beginAConversation,getDataCompte,loadConv })
     (MessageControllerComponent)

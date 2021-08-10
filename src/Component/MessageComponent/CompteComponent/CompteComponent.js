@@ -28,7 +28,7 @@ class CompteComponent extends Component
             key = {"compte"+index}
             compteId = {ids[index]}
             compteLogin ={logins[index]}
-             />
+            />
         )
         return (<div>
         <h3>Contact</h3>

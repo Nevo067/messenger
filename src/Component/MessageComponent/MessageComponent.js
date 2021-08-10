@@ -20,7 +20,7 @@ class MessageComponent extends React.Component {
             <div class="row">
                 <div class="col col-3">
                     <CompteComponent 
-                    comptes = {this.props.ListCompte} 
+                    comptes = {this.props.convs} 
                     beginAconversation = {this.props.beginAConversation}
                     />
                 </div>

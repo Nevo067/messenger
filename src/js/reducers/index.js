@@ -2,12 +2,14 @@ import { act } from 'react-dom/test-utils';
 import ADD_MESSAGE, { MESSAGE_LOAD, MESSAGE_LOAD_FRONT,COMPTE_LOAD, 
     COMPTE_RESET,COMPTE_ADD, MESSAGE_RESET,USER_LOAD,IS_CONNECT_TRUE,
     IS_CONNECT_FALSE, 
-    BEGIN_A_CONVERSATION} from '../constant/index';
+    BEGIN_A_CONVERSATION,
+    LOAD_CONVS} from '../constant/index';
 
 const initialState = {
     messages: [],
     comptes:[],
     user:{},
+    convs:[],
     actualConv:{},
     isConnect:false
 };
@@ -69,6 +71,11 @@ function rootReducer(state = initialState,action)
             return{
                 ...state,
                 ActualConv:action.payload
+            }
+        case LOAD_CONVS:
+            return{
+                ...state,
+                convs:action.payload
             }
         default:
             break;
