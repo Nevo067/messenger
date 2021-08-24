@@ -11,13 +11,13 @@ export function addMessage(payload){
 export function getDataMessage(){
     return function(dispatch) {
         console.log("dataMessage")
-    return fetch("http://127.0.0.1:5000/User",{mode:'cors'})
+    return fetch(apiIp+"Message/Conv",{mode:'cors'})
     .then(response => response.json())
     .then(json => {
         dispatch({type : MESSAGE_RESET, payload : ""})
         json.forEach(element => {
-            console.log(element.login)
-            dispatch({type : MESSAGE_LOAD, payload : element.login});
+            console.log(element.text)
+            dispatch({type : MESSAGE_LOAD, payload : element.text});
         });
         
     });
@@ -141,7 +141,7 @@ export function loadConv(idUser)
             body:JSON.stringify({Id:idUser})
             
         };
-        return fetch(apiIp+`/Conv/findUser`,request,{mode:'cors'})
+        return fetch(apiIp+`Conv/findUser`,request,{mode:'cors'})
         .then(response => response.json())
         .then(conv=>{
             console.log(conv)

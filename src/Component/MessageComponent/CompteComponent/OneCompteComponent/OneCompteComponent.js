@@ -11,7 +11,7 @@ class OneCompteComponent extends Component
         return(
             <div class ="row  compte" onClick = {()=>this.props.changeConv(this.props.compteId)}>
                 <p>{this.props.compteLogin}</p><br/>
-                <p>coucou</p>
+                
             </div>
 
         )

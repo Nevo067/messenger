@@ -22,12 +22,13 @@ class CompteComponent extends Component
             ids.push(element.id)
             logins.push(element.login)
         });
+        
         const comptes = logins.map((compte,index)=>
             <OneCompteComponent
             beginAConversation  = {this.props.beginAconversation}
             key = {"compte"+index}
-            compteId = {ids[index]}
-            compteLogin ={logins[index]}
+            compteId = {this.props.comptes[index].Id}
+            compteLogin ={this.props.comptes[index].nom}
             changeConv ={this.props.ChangeConv}
             />
         )
