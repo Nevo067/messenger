@@ -153,8 +153,25 @@ export function ChangeConv(id)
 {
     return function(dispatch)
     {
-    
-        dispatch({type:CHANGE_CONV ,payload:id})
+        //PARAMETER REQUEST
+        const request ={
+            method:'GET',
+            headers:{'Content-Type': 'application/json'},
+        };
+        //CHANGE THE CURRENT CONVERSATION
+        dispatch({type:CHANGE_CONV ,payload:id});
+
+        //LOAD MESSAGE OF CONVERSATION 
+        return fetch(apiIp+"Message/Conv/"+id,request,{mode:'cors'})
+        .then(response=> response.json())
+        .then(json => {
+            dispatch({type : MESSAGE_RESET, payload : ""})
+            json.forEach(element => {
+                console.log(element.text)
+                dispatch({type : MESSAGE_LOAD, payload : element.text});
+            });
+            
+        });
     }
     
 }
