@@ -60,7 +60,11 @@ export class MessageControllerComponent extends Component {
 
     }
     addMessages(e) {
-        this.props.addMessage(e)
+        let message = {
+            TEXT:e,
+            idParticipant:this.props.participant.idParticipant
+        }
+        this.props.addMessage(message)
         this.setState({ messages: this.props.Lmessages })
     }
     beginAConv(e)

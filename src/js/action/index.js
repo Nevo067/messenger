@@ -1,9 +1,26 @@
 import apiIp from '../../environment/apiConst';
 import {ADD_MESSAGE,MESSAGE_LOAD,MESSAGE_RESET,COMPTE_RESET, USER_LOAD, IS_CONNECT_TRUE,BEGIN_A_CONVERSATION,COMPTE_LOAD, LOAD_CONVS, CHANGE_CONV, LOAD_PART} from '../constant/index';
-export function addMessage(payload){
+export function addMessage(load){
+
+    
+
     return function(dispatch){
-        console.log("se lance")
-        dispatch({type:ADD_MESSAGE,payload})
+
+        const request ={
+            method:'POST',
+            headers:{'Content-Type': 'application/json'},
+            body:JSON.stringify(load)
+            
+        };
+
+        return fetch(apiIp+`/Message`,request,{mode:'cors'})
+        .then(reponse => reponse.json)
+        .then(x =>{
+            console.log("se lance")
+            dispatch({type:ADD_MESSAGE,payload:load.TEXT})
+        })
+
+        
     }
     
 };
