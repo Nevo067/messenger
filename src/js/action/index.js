@@ -1,5 +1,5 @@
 import apiIp from '../../environment/apiConst';
-import {ADD_MESSAGE,MESSAGE_LOAD,MESSAGE_RESET,COMPTE_RESET, USER_LOAD, IS_CONNECT_TRUE,BEGIN_A_CONVERSATION,COMPTE_LOAD, LOAD_CONVS, CHANGE_CONV} from '../constant/index';
+import {ADD_MESSAGE,MESSAGE_LOAD,MESSAGE_RESET,COMPTE_RESET, USER_LOAD, IS_CONNECT_TRUE,BEGIN_A_CONVERSATION,COMPTE_LOAD, LOAD_CONVS, CHANGE_CONV, LOAD_PART} from '../constant/index';
 export function addMessage(payload){
     return function(dispatch){
         console.log("se lance")
@@ -149,7 +149,7 @@ export function loadConv(idUser)
         });
     }
 }
-export function ChangeConv(id)
+export function ChangeConv(id,conv)
 {
     return function(dispatch)
     {
@@ -159,7 +159,7 @@ export function ChangeConv(id)
             headers:{'Content-Type': 'application/json'},
         };
         //CHANGE THE CURRENT CONVERSATION
-        dispatch({type:CHANGE_CONV ,payload:id});
+        dispatch({type:CHANGE_CONV ,payload:conv});
 
         //LOAD MESSAGE OF CONVERSATION 
         return fetch(apiIp+"Message/Conv/"+id,request,{mode:'cors'})
@@ -172,6 +172,23 @@ export function ChangeConv(id)
             });
             
         });
+    }
+    
+}
+export function FindParticipant(idUser,idConv)
+{
+    const request ={
+        method:'GET',
+        headers:{'Content-Type': 'application/json'},
+    };
+
+    return function(dispatch)
+    {
+        return fetch(apiIp+`Participant/${idConv}/${idUser}`,request,{mode:'cors'})
+        .then(reponse=> reponse.json())
+        .then(json =>{
+            dispatch({type:LOAD_PART,payload:json})
+        })
     }
     
 }

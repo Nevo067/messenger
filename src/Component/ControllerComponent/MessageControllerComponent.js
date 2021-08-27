@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getDataMessage,getDataCompte,loadConv,ChangeConv } from "../../js/action";
+import { getDataMessage,getDataCompte,loadConv,ChangeConv,FindParticipant } from "../../js/action";
 import { addMessage } from '../../js/action';
 import MessageComponent from "../MessageComponent/MessageComponent";
 import {beginAConversation} from '../../js/action'
@@ -73,7 +73,11 @@ export class MessageControllerComponent extends Component {
     }
     ChangeConvActuel(id)
     {
-        this.props.ChangeConv(id);
+        let conv = this.props.convs.find(x => x.Id == id)
+        this.props.ChangeConv(id,conv).then(x =>
+            {
+                this.props.FindParticipant(this.props.user.id,conv.Id)
+            });
     }
 }
 
@@ -81,9 +85,10 @@ const mapStateToProps = (state) => {
     return {
         Lmessages: state.messages,
         comptes: state.comptes,
-        conv:state.ActualConv,
+        conv:state.actualConv,
         convs:state.convs, 
-        user:state.user
+        user:state.user,
+        participant:state.participant
     };
 }
 
@@ -100,5 +105,5 @@ const mapDispatchToProps = dispatch => {
 
 export default connect(
     mapStateToProps,
-    { addMessage, getDataMessage,beginAConversation,getDataCompte,loadConv,ChangeConv})
+    { addMessage, getDataMessage,beginAConversation,getDataCompte,loadConv,ChangeConv,FindParticipant})
     (MessageControllerComponent)

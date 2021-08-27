@@ -4,12 +4,14 @@ import ADD_MESSAGE, { MESSAGE_LOAD, MESSAGE_LOAD_FRONT,COMPTE_LOAD,
     IS_CONNECT_FALSE, 
     BEGIN_A_CONVERSATION,
     LOAD_CONVS,
-    CHANGE_CONV} from '../constant/index';
+    CHANGE_CONV,
+    LOAD_PART} from '../constant/index';
 
 const initialState = {
     messages: [],
     comptes:[],
     user:{},
+    participant:{},
     convs:[],
     actualConv:{},
     isConnect:false
@@ -71,19 +73,26 @@ function rootReducer(state = initialState,action)
         case BEGIN_A_CONVERSATION:
             return{
                 ...state,
-                ActualConv:action.payload
-            }
+                actualConv:action.payload,
+            };
         case LOAD_CONVS:
             return{
                 ...state,
-                convs:action.payload
-            }
+                convs:action.payload,
+            };
         case CHANGE_CONV:
-            let newConv = state.convs.find(element => element.id == action.payload);
+            console.log(action.payload)
             return{
                 ...state,
-                ActuelConv:newConv
+                actualConv:action.payload
 
+            };
+        case LOAD_PART:
+            {
+                return{
+                    ...state,
+                    participant:action.payload
+                };
             }
         default:
             break;
