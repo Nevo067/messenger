@@ -12,7 +12,7 @@ class DropDownElement extends Component
         
         return(
             <li class="dropdown-item">
-                {this.props.compte}
+                {this.props.compte.login}
             </li>
         )
     }

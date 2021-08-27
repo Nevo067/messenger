@@ -27,7 +27,7 @@ class DropDownComponent extends Component{
     }
     filterDropDownElement(mess)
     {
-        return this.props.comptes.filter(x => (x.search(mess)!== -1)).map((compte,index)=>
+        return this.props.comptes.filter(x => (x.login.search(mess)!== -1)).map((compte,index)=>
             
             <DropElementComponent compte={compte} key={"dropSearch"+index} />
            
