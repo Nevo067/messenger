@@ -11,8 +11,8 @@ class DropDownElement extends Component
     {
         
         return(
-            <li class="dropdown-item">
-                {this.props.compte.login}
+            <li class="dropdown-item" onClick ={this.props.beginConversation(this.props.compte.id)}>
+                {this.props.compte.login} 
             </li>
         )
     }

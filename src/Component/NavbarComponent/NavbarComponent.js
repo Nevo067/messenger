@@ -34,7 +34,10 @@ class NavbarComponent extends Component {
                         </ul>
                         { 
                         this.props.isConnected ? 
-                        <SearchComponent comptes = {this.props.comptes} /> : 
+                        <SearchComponent 
+                        comptes = {this.props.comptes} 
+                        beginConversation = {this.props.beginConversation}   
+                        /> : 
                         <p></p>
                         }
                         

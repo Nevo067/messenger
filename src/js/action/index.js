@@ -131,6 +131,8 @@ export function beginAConversation(id1,id2)
 {
     return function(dispatch)
     {
+        console.log(id1)
+        console.log(id2);
         const request ={
             method:'POST',
             headers:{'Content-Type': 'application/json'},

@@ -21,6 +21,7 @@ class SearchComponent extends Component
             <DropDownComponent 
                 comptes= {this.props.comptes}
                 searchWord = {this.state.compteSearch}
+                beginConversation = {this.props.beginConversation}
             /> 
             
                 
