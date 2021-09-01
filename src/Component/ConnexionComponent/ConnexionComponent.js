@@ -21,11 +21,11 @@ class ConnexionComponent extends Component
             <div key={this.props.isConnect}>
                 <form>
                     <div class="form-group row">
-                        <label for="login" class="col col-3" >Login</label>
+                        <label for="login" class="text-center col col-3" >Login</label>
                         <input id="login" value={this.state.login} class="col col-lg form-control-lg" onChange={this.loginChange} type="text" />
                     </div>
                     <div class="form-group row">
-                        <label for="password" class="col col-3">Password</label>
+                        <label for="password" class=" text-center col col-3">Password</label>
                         <input id="password" value={this.state.password} class="col col-lg form-control-lg" onChange={this.passwordChange} type="text" />
                     </div>
                     <div class="row align-self-center ">

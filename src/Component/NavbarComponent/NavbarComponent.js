@@ -10,8 +10,8 @@ class NavbarComponent extends Component {
 
     render() {
         return (
-            
-                <div class="navbar navbar-expand-lg navbar-light bg-light row">
+            <div>
+                <div class=" row navbar navbar-expand-lg navbar-light bg-light row">
                     <Link class="navbar-brand" to="/">AtomMessenger</Link>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -32,17 +32,19 @@ class NavbarComponent extends Component {
                                 <a class="nav-link disabled" href="#">Disabled</a>
                             </li>
                         </ul>
-                        { 
+                    </div>
+                </div>
+               
+                    { 
                         this.props.isConnected ? 
                         <SearchComponent 
                         comptes = {this.props.comptes} 
                         beginConversation = {this.props.beginConversation}   
                         /> : 
                         <p></p>
-                        }
-                        
-                    </div>
-                </div>
+                    }
+                
+            </div>
         )
     }
 }

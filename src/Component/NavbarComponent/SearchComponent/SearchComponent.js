@@ -13,16 +13,18 @@ class SearchComponent extends Component
     {
         return(
             
-            <form class="form-inline my-2 my-lg-0">
-            
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" data-toggle="dropdown" aria-haspopup="true"  value={this.state.compteSearch} onChange={this.changeCompteSearch}></input>
-            
-            
+            <form class="form-inline" data-toggle="dropdown">
+            <div class="col col-10">
+                <input class="form-control form-control-lg w-100 float-left" type="search" placeholder="Search" aria-label="Search"  aria-haspopup="true"  value={this.state.compteSearch} onChange={this.changeCompteSearch}></input>
+            </div>
+            <div class="col col-2">
             <DropDownComponent 
                 comptes= {this.props.comptes}
                 searchWord = {this.state.compteSearch}
                 beginConversation = {this.props.beginConversation}
-            /> 
+            />
+            </div>
+             
             
                 
                 
@@ -31,7 +33,11 @@ class SearchComponent extends Component
     }
     changeCompteSearch(event)
     {
-        this.setState({compteSearch:event.target.value})
+        if(event.target.value != "")
+        {
+            this.setState({compteSearch:event.target.value})
+        }
+        
     }
 }
 export default SearchComponent

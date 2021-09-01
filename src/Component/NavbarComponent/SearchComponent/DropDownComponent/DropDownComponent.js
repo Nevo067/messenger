@@ -15,7 +15,7 @@ class DropDownComponent extends Component{
         
         return (
             <div class="btn-group">
-                <button class="btn btn-outline-primary my-2 my-sm-0 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button class="btn btn-outline-primary btn-lg w-100 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Search
                 </button>
             <ul class="dropdown-menu" aria-labelledby="search">
