@@ -28,7 +28,9 @@ class MessageComponent extends React.Component {
                 <div class="col col-9">
                     <div class="row">
 
-                        <MessageVueComponent key="vueComponent" ListMessage={this.props.ListMessage} />
+                        <MessageVueComponent key="vueComponent" 
+                        ListMessage={this.props.ListMessage}
+                        participant = {this.props.participant} />
                     </div>
                     <div class="row">
                         <div class="col col-lg">

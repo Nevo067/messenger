@@ -19,10 +19,11 @@ class MessageVueComponent extends React.Component
             <MessageText key={index} 
                 Message ={message}
                 mesKey ={index}
+                participant = {this.props.participant}
              />
         );
-        console.log({listMessage})
-        console.log({tabList})
+        
+        console.log(this.props.ListMessage)
 
         return (<div class = "col col-12">{listMessage}</div>)
     }

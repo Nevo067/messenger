@@ -15,7 +15,7 @@ class SearchComponent extends Component
             
             <form class="form-inline" data-toggle="dropdown">
             <div class="col col-10">
-                <input class="form-control form-control-lg w-100 float-left" type="search" placeholder="Search" aria-label="Search"  aria-haspopup="true"  value={this.state.compteSearch} onChange={this.changeCompteSearch}></input>
+                <input class="form-control form-control-md w-100 float-left" type="search" placeholder="Search" aria-label="Search"  aria-haspopup="true"  value={this.state.compteSearch} onChange={this.changeCompteSearch}></input>
             </div>
             <div class="col col-2">
             <DropDownComponent 

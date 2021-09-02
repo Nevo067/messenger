@@ -51,6 +51,7 @@ export class MessageControllerComponent extends Component {
                             ListCompte = {this.props.comptes}
                             convs = {this.props.convs}
                             ChangeConvActuel = {this.ChangeConvActuel}
+                            participant = {this.props.participant}
                              />
                 </div>
            

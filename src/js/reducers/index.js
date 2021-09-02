@@ -27,6 +27,7 @@ function rootReducer(state = initialState,action)
             });
         case MESSAGE_LOAD:
             console.log("le message est load")
+            console.log(action.payload)
             return {
                 ...state,
                 messages: state.messages.concat(action.payload)

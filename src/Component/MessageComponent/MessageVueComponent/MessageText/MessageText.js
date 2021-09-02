@@ -11,9 +11,18 @@ class MessageText extends React.Component
 
     render()
     {
+        let idIsEqual = this.props.participant.Id == this.props.Message.Idparticipant;
         return(
-            <div key={this.props.mesKey} class="message border border-primary rounded-30 bg-primary text-white">
-                <p>{this.props.Message}</p>
+            <div>
+            {idIsEqual ? 
+                <div key={this.props.mesKey} class="message border border-primary rounded-30 bg-primary text-white text-right p-1">
+                <p>{this.props.Message.text}</p>
+                </div>
+                :
+                <div key={this.props.mesKey} class="message border border-primary rounded-30 bg-secondary text-white text-right p-1">
+                <p>{this.props.Message.text}</p>
+                </div>
+            }
             </div>
 
             

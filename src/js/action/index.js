@@ -31,10 +31,11 @@ export function getDataMessage(){
     return fetch(apiIp+"Message/Conv",{mode:'cors'})
     .then(response => response.json())
     .then(json => {
+        console.log(json)
         dispatch({type : MESSAGE_RESET, payload : ""})
         json.forEach(element => {
-            console.log(element.text)
-            dispatch({type : MESSAGE_LOAD, payload : element.text});
+            console.log(element)
+            dispatch({type : MESSAGE_LOAD, payload : element});
         });
         
     });
@@ -187,7 +188,7 @@ export function ChangeConv(id,conv)
             dispatch({type : MESSAGE_RESET, payload : ""})
             json.forEach(element => {
                 console.log(element.text)
-                dispatch({type : MESSAGE_LOAD, payload : element.text});
+                dispatch({type : MESSAGE_LOAD, payload : element});
             });
             
         });
