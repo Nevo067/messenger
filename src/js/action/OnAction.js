@@ -1,12 +1,18 @@
 import ADD_MESSAGE from "../constant"
 
-export function OnMessage(dispatch,socket)
+export function OnMessage(socket)
 {
-    socket.on("/message",(msg)=>
+    return function(dispatch)
     {
-        dispatch({type:ADD_MESSAGE,payload:msg.TEXT})
-
-    })
+        
+        socket.on("/messageC",(msg)=>
+        {
+            console.log(msg)
+            console.log("message reçu")
+            dispatch({type:ADD_MESSAGE,payload:msg})
+        })
+    }
+    
    
 }
 

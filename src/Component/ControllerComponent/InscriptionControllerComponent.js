@@ -46,6 +46,6 @@ const mapStateToProps = (state) => {
 }
 export default connect(
     mapStateToProps,
-    { addMessage, getDataMessage,getDataCompte,postCompte,resetCompte,resetMessage })
+    { getDataMessage,getDataCompte,postCompte,resetCompte,resetMessage })
     (InscriptionControllerComponent)
 
