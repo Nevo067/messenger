@@ -1,9 +1,6 @@
 import apiIp from '../../environment/apiConst';
 import {ADD_MESSAGE,MESSAGE_LOAD,MESSAGE_RESET,COMPTE_RESET, USER_LOAD, IS_CONNECT_TRUE,BEGIN_A_CONVERSATION,COMPTE_LOAD, LOAD_CONVS, CHANGE_CONV, LOAD_PART} from '../constant/index';
 export function addMessage(load){
-
-    
-
     return function(dispatch){
 
         const request ={
@@ -13,16 +10,28 @@ export function addMessage(load){
             
         };
 
-        return fetch(apiIp+`/Message`,request,{mode:'cors'})
+        return fetch(apiIp+`/message`,request,{mode:'cors'})
         .then(reponse => reponse.json)
         .then(x =>{
             console.log("se lance")
             dispatch({type:ADD_MESSAGE,payload:load.TEXT})
-        })
-
-        
+        })  
     }
-    
+};
+
+export function addMessageSocketOn(socket,load){
+    return function(dispatch){
+
+        const request ={
+            method:'POST',
+            headers:{'Content-Type': 'application/json'},
+            body:JSON.stringify(load)
+            
+        };
+        socket.emit("/message",JSON.stringify(load))
+        //TODO CONTINUE
+         
+    }
 };
 
 export function getDataMessage(){

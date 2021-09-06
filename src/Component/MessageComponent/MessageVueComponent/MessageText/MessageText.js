@@ -11,7 +11,15 @@ class MessageText extends React.Component
 
     render()
     {
-        let idIsEqual = this.props.participant.Id == this.props.Message.Idparticipant;
+        let idIsEqual
+        if(this.props.participant.Id != undefined)
+        {
+            idIsEqual = this.props.participant.Id == this.props.Message.Idparticipant;
+        }
+        else
+        {
+            idIsEqual = false;
+        }
         return(
             <div>
             {idIsEqual ? 

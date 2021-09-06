@@ -1,13 +1,10 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getDataMessage,getDataCompte,loadConv,ChangeConv,FindParticipant } from "../../js/action";
+import { getDataMessage,getDataCompte,loadConv,ChangeConv,FindParticipant,addMessageSocketOn} from "../../js/action";
 import { addMessage } from '../../js/action';
 import MessageComponent from "../MessageComponent/MessageComponent";
 import {beginAConversation} from '../../js/action'
-import NavbarComponent from "../NavbarComponent/NavbarComponent";
-import { Route,BrowserRouter as Router,Switch } from "react-router-dom";
-
-import store from '../../js/store';
+import OnMessage from '../../js/action/OnAction';
 import socket from "../../environment/socketConst";
 
 
@@ -30,6 +27,7 @@ export class MessageControllerComponent extends Component {
         });
         this.props.getDataCompte();
         this.loadConvs();
+        this.props.addMessageSocketOn(socket)
         socket.on("text",()=>{console.log("test")});
 
     }
@@ -65,7 +63,8 @@ export class MessageControllerComponent extends Component {
             TEXT:e,
             idParticipant:this.props.participant.idParticipant
         }
-        this.props.addMessage(message)
+        //this.props.addMessage(message)
+        this.props.addMessageSocketOn(socket,message)
         this.setState({ messages: this.props.Lmessages })
     }
     beginAConv(e)
@@ -110,5 +109,5 @@ const mapDispatchToProps = dispatch => {
 
 export default connect(
     mapStateToProps,
-    { addMessage, getDataMessage,beginAConversation,getDataCompte,loadConv,ChangeConv,FindParticipant})
+    { addMessage, getDataMessage,beginAConversation,getDataCompte,loadConv,ChangeConv,FindParticipant,addMessageSocketOn,OnMessage})
     (MessageControllerComponent)
