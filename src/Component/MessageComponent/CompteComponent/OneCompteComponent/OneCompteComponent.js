@@ -22,8 +22,7 @@ class OneCompteComponent extends Component
                 </div>
                 :
                 <div class="col col-xl compte">
-                    <label for ="nom"></label>
-                    <input type="text" name="nom" onChange={(e)=>this.changeMessage(e)}></input>
+                    <input type="text" class="form-control" name="nom" onChange={(e)=>this.changeMessage(e)}></input>
                 </div>   
                 }
                 <button class="btn btn-block btn-warning col-3 border" onClick={()=>this.changeIsEdit()}>Edition</button>
