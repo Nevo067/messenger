@@ -5,7 +5,8 @@ import ADD_MESSAGE, { MESSAGE_LOAD, MESSAGE_LOAD_FRONT,COMPTE_LOAD,
     BEGIN_A_CONVERSATION,
     LOAD_CONVS,
     CHANGE_CONV,
-    LOAD_PART} from '../constant/index';
+    LOAD_PART,
+    ADD_CONV} from '../constant/index';
 
 const initialState = {
     messages: [],
@@ -76,6 +77,11 @@ function rootReducer(state = initialState,action)
                 ...state,
                 actualConv:action.payload,
             };
+        case ADD_CONV:
+            return{
+                ...state,
+                convs:state.convs.concat(action.payload)
+            }
         case LOAD_CONVS:
             return{
                 ...state,

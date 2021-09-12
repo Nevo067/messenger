@@ -1,7 +1,7 @@
 import { Component } from "react";
 import { connect } from "react-redux";
 import NavbarComponent from "../NavbarComponent/NavbarComponent"
-import {getDataMessage,beginAConversation} from "../../js/action/index"
+import {getDataMessage,beginAConversation,loadConv} from "../../js/action/index"
 
 class NavbarControllerComponent extends Component{
 
@@ -30,7 +30,7 @@ class NavbarControllerComponent extends Component{
     BeginConversation(idCompte)
     {
         console.log(idCompte)
-        this.props.beginAConversation(this.props.user.id,idCompte)
+        this.props.beginAConversation(this.props.user.id,idCompte).then(x => this.props.loadConv(this.props.user.id))
     }
 
 }
@@ -42,4 +42,4 @@ const mapStateToProps = (state) =>{
     };
     
 }
-export default connect(mapStateToProps,{getDataMessage,beginAConversation})(NavbarControllerComponent)
+export default connect(mapStateToProps,{getDataMessage,beginAConversation,loadConv})(NavbarControllerComponent)

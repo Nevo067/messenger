@@ -1,5 +1,5 @@
 import apiIp from '../../environment/apiConst';
-import {ADD_MESSAGE,MESSAGE_LOAD,MESSAGE_RESET,COMPTE_RESET, USER_LOAD, IS_CONNECT_TRUE,BEGIN_A_CONVERSATION,COMPTE_LOAD, LOAD_CONVS, CHANGE_CONV, LOAD_PART} from '../constant/index';
+import {ADD_MESSAGE,MESSAGE_LOAD,MESSAGE_RESET,COMPTE_RESET, USER_LOAD, IS_CONNECT_TRUE,BEGIN_A_CONVERSATION,COMPTE_LOAD, LOAD_CONVS, CHANGE_CONV, LOAD_PART, ADD_CONV} from '../constant/index';
 /*
 export function addMessage(load){
     return function(dispatch){
@@ -147,7 +147,7 @@ export function beginAConversation(id1,id2)
         const request ={
             method:'POST',
             headers:{'Content-Type': 'application/json'},
-            body:JSON.stringify({id1:id1,id2:id2})
+            body:JSON.stringify({id1:id1,id2:id2,})
             
         };
         return fetch(`http://127.0.0.1:5000/Conv/CreateConv`,request,{mode:'cors'})

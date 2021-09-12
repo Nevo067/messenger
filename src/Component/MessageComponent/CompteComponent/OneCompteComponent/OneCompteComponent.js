@@ -5,9 +5,10 @@ class OneCompteComponent extends Component
     constructor(props)
     {
         super(props)
-        this.state = {isEdit:true,nom:""}
+        this.state = {isEdit:true,nom:this.props.compteLogin}
         
     }
+    
     render()
     {
         let isEdit = this.state.isEdit; 
@@ -22,7 +23,7 @@ class OneCompteComponent extends Component
                 </div>
                 :
                 <div class="col col-xl compte">
-                    <input type="text" class="form-control" name="nom" onChange={(e)=>this.changeMessage(e)}></input>
+                    <input type="text" class="form-control" name="nom" value={this.state.nom} onChange={(e)=>this.changeMessage(e)}></input>
                 </div>   
                 }
                 <button class="btn btn-block btn-warning col-3 border" onClick={()=>this.changeIsEdit()}>Edition</button>
@@ -33,6 +34,10 @@ class OneCompteComponent extends Component
     changeIsEdit()
     {
         let isEdit = this.state.isEdit;
+        if(!isEdit)
+        {
+            
+        }
         this.setState({isEdit : !isEdit})
     }
     changeMessage(e)
