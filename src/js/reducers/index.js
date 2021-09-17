@@ -23,8 +23,16 @@ function rootReducer(state = initialState,action)
     switch (action.type) {
         case ADD_MESSAGE:
             console.log("message se lance")
+            
+            if(!state.messages.find(x => x.IdMessage == action.payload.IdMessage))
+            {
+                
+                return Object.assign({}, state, {
+                    messages: [...state.messages].concat(action.payload)
+                });
+            }
             return Object.assign({}, state, {
-                messages: [...state.messages].concat(action.payload)
+                messages: [...state.messages]
             });
         case MESSAGE_LOAD:
             console.log("le message est load")

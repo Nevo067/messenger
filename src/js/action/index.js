@@ -23,7 +23,7 @@ export function addMessage(load){
 export function addMessageSocketEmit(socket,load){
     return function(dispatch){
 
-        
+        console.log("emit")
         socket.emit("/message",JSON.stringify(load))
        
          
@@ -31,6 +31,7 @@ export function addMessageSocketEmit(socket,load){
 };
 export function addMessageSocketOn(load){
     return function(dispatch){
+        console.log("ppc")
         dispatch({type:ADD_MESSAGE,payload:load}) 
     }
 };

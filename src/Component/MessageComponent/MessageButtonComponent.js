@@ -5,6 +5,7 @@ class MessageButtonComponent extends React.Component
     {
         super(props)
         this.state = {newMessage:""};
+        this.SendMessage = this.SendMessage.bind(this)
 
         
     }
@@ -26,6 +27,7 @@ class MessageButtonComponent extends React.Component
     //up state
     SendMessage(e)
     {
+        console.log("button")
         console.log(this.state.newMessage)
         this.props.addMessage(this.state.newMessage);
         e.preventDefault();

@@ -12,9 +12,11 @@ class MessageText extends React.Component
     render()
     {
         let idIsEqual
-        if(this.props.participant.Id != undefined)
+        if(this.props.participant.idParticipant != undefined)
         {
-            idIsEqual = this.props.participant.Id == this.props.Message.Idparticipant;
+            console.log(this.props.participant.idParticipant)
+            console.log(this.props.Message.idParticipant)
+            idIsEqual = this.props.participant.idParticipant == this.props.Message.idParticipant;
         }
         else
         {
@@ -27,7 +29,7 @@ class MessageText extends React.Component
                 <p>{this.props.Message.text}</p>
                 </div>
                 :
-                <div key={this.props.mesKey} class="message border border-primary rounded-30 bg-secondary text-white text-right p-1">
+                <div key={this.props.mesKey} class="message border border-primary rounded-30 bg-secondary text-white text-left p-1">
                 <p>{this.props.Message.text}</p>
                 </div>
             }
