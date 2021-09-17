@@ -16,6 +16,7 @@ export class MessageControllerComponent extends Component {
         this.beginAConv = this.beginAConv.bind(this);
         this.loadConvs = this.loadConvs.bind(this);
         this.ChangeConvActuel = this.ChangeConvActuel.bind(this);
+        this.addMessages = this.addMessages.bind(this)
 
     }
 

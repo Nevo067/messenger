@@ -56,6 +56,7 @@ class MessageComponent extends React.Component {
     }
     addMessages(e)
     {
+        console.log("MessageComponent")
         this.props.addMessage(e)
         
     }

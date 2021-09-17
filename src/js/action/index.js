@@ -31,6 +31,7 @@ export function addMessageSocketEmit(socket,load){
 };
 export function addMessageSocketOn(load){
     return function(dispatch){
+        console.log("ppc")
         dispatch({type:ADD_MESSAGE,payload:load}) 
     }
 };
