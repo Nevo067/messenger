@@ -112,7 +112,7 @@ export function addPostMessage(payload)
 }
 //FUNCTION TO CHECK IF USER EXIST
 //TODO:A test
-export function getUserByLoginPass(login,password)
+export function getUserByLoginPass(login,password,socket)
 {
     return function(dispatch)
     {
@@ -128,10 +128,9 @@ export function getUserByLoginPass(login,password)
             if(user !== false)
             {   
                 
-                console.log("cela marche et c'est lancer")
-                console.log(user)
-                dispatch({type : USER_LOAD,payload:user})
                 
+                dispatch({type : USER_LOAD,payload:user})
+                socket.emit("/connectRoom",user.id)
                 
             }
         });
@@ -159,6 +158,11 @@ export function beginAConversation(id1,id2)
         });
     }
     
+}
+export function beginAConversationEmit(id1,id2,socket)
+{
+    let load = "{id1:"+id1+",id2:"+id2+"}";
+    socket.emit("/beginConversation",load);
 }
 //Conversation Method
 
