@@ -2,6 +2,7 @@ import  {Component}  from "react";
 import  {connect}  from "react-redux";
 import  { getDataCompte,getUserByLoginPass }  from "../../js/action";
 import ConnexionComponent from "../ConnexionComponent/ConnexionComponent";
+import socket from "../../environment/socketConst";
 
 class ConnexionControllerComponent extends Component{
     constructor(props)
@@ -38,7 +39,7 @@ class ConnexionControllerComponent extends Component{
     }
     verifCompte(login,password)
     {
-        return this.props.getUserByLoginPass(login,password).then(
+        return this.props.getUserByLoginPass(login,password,socket).then(
             this.setState({isConnect : this.props.isConnect})
             
         );

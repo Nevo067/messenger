@@ -77,9 +77,15 @@ export class MessageControllerComponent extends Component {
     {
         this.props.beginAConversation(e,this.props.user.id)
     }
+    //Get Conversation to back end depending on the user
     loadConvs()
     {
-        this.props.loadConv(this.props.user.id)
+        console.log("la vie"+this.props.user.id)
+        if(this.props.user.id != null)
+        {
+            this.props.loadConv(this.props.user.id)
+        }
+        
     }
     ChangeConvActuel(id)
     {

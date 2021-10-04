@@ -116,6 +116,7 @@ export function getUserByLoginPass(login,password,socket)
 {
     return function(dispatch)
     {
+        console.log(login,password)
         const request ={
             method:'POST',
             headers:{'Content-Type': 'application/json'},
