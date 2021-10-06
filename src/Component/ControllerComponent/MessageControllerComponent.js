@@ -90,7 +90,7 @@ export class MessageControllerComponent extends Component {
     ChangeConvActuel(id)
     {
         let conv = this.props.convs.find(x => x.Id == id)
-        this.props.ChangeConv(id,conv).then(x =>
+        this.props.ChangeConv(id,conv,socket).then(x =>
             {
                 this.props.FindParticipant(this.props.user.id,conv.Id)
             });

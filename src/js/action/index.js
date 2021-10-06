@@ -1,4 +1,5 @@
 import apiIp from '../../environment/apiConst';
+
 import {ADD_MESSAGE,MESSAGE_LOAD,MESSAGE_RESET,COMPTE_RESET, USER_LOAD, IS_CONNECT_TRUE,BEGIN_A_CONVERSATION,COMPTE_LOAD, LOAD_CONVS, CHANGE_CONV, LOAD_PART, ADD_CONV} from '../constant/index';
 /*
 export function addMessage(load){
@@ -185,7 +186,7 @@ export function loadConv(idUser)
         });
     }
 }
-export function ChangeConv(id,conv)
+export function ChangeConv(id,conv,socket)
 {
     return function(dispatch)
     {
@@ -202,6 +203,7 @@ export function ChangeConv(id,conv)
         .then(response=> response.json())
         .then(json => {
             dispatch({type : MESSAGE_RESET, payload : ""})
+            socket.emit("/joinConv",id)
             json.forEach(element => {
                 console.log(element.text)
                 dispatch({type : MESSAGE_LOAD, payload : element});
