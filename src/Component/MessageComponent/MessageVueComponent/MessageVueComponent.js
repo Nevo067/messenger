@@ -1,5 +1,7 @@
 import React from 'react';
 import MessageText from './MessageText/MessageText'
+import './MessageComponent.css';
+
 class MessageVueComponent extends React.Component
 {
     constructor(props)

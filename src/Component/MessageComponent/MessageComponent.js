@@ -26,7 +26,7 @@ class MessageComponent extends React.Component {
                     />
                 </div>
                 <div class="col col-9">
-                    <div class="row">
+                    <div class="row MessageCss">
 
                         <MessageVueComponent key="vueComponent" 
                         ListMessage={this.props.ListMessage}
