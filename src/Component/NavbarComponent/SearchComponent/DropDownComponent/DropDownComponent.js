@@ -18,10 +18,12 @@ class DropDownComponent extends Component{
                 <button class="btn btn-outline-primary btn-md w-100 dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Search
                 </button>
+            {/*
             <ul class="dropdown-menu" aria-labelledby="search">
                 {listCompte}
-                <li class="dropdown-item" >test1</li>
+                <li class="dropdown-item">test1</li>
             </ul>
+            */}
             </div>
         )
     }

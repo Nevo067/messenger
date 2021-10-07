@@ -1,5 +1,6 @@
 import { Component } from "react";
 import DropDownComponent from "./DropDownComponent/DropDownComponent"
+import DropDownElementComponent from "./DropDownComponent/DropElementComponent/DropDownElementComponent" 
 
 class SearchComponent extends Component 
 {
@@ -11,6 +12,7 @@ class SearchComponent extends Component
     }
     render()
     {
+        const listCompte = this.filterDropDownElement(this.state.compteSearch)
         return(
             
             <form class="form-inline" data-toggle="dropdown">
@@ -24,11 +26,25 @@ class SearchComponent extends Component
                 beginConversation = {this.props.beginConversation}
             />
             </div>
-             
+            <ul class="dropdown-menu" aria-labelledby="search" onClick={() => console.log("xxxx")} >
+                {listCompte}
+            </ul>  
+            </form>
+        )
+    }
+    filterDropDownElement(mess)
+    {
+        return this.props.comptes.filter(x => (x.login.search(mess)!== -1)).map((compte,index)=>
+            
+            <DropDownElementComponent tag="a"
+            compte={compte}
+            beginConversation = {this.props.beginConversation} 
+            key={"dropSearch"+index}
+            
             
                 
-                
-            </form>
+            />
+           
         )
     }
     changeCompteSearch(event)
