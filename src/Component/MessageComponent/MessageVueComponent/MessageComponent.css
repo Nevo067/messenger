@@ -1,5 +1,46 @@
-.MessageCss
-{
-    max-width: 100%;
-    overflow-y: scroll;
+
+@media (max-height: 575.98px) {
+    .MessageCss
+    {
+        overflow:scroll;
+        height: 270px;
+        
+    }
+ }
+ 
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-height: 576px) and (max-height: 767px) {
+    .MessageCss
+    {
+        overflow:scroll;
+        height: 430px;
+    }
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-height: 768px) and (max-height: 991.98px) {
+    .MessageCss
+    {
+        overflow:scroll;
+        height: 550px;
+    }
+ }
+
+/* Large devices (desktops, 992px and up) */
+@media (min-height: 992px) and (max-height: 1199.98px) { 
+    .MessageCss
+    {
+        overflow:scroll;
+        height: 800px;
+    }
+}
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-height: 1200px) { 
+    .MessageCss
+    {
+        overflow:scroll;
+        height: 720px;
+    }
 }
