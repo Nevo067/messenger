@@ -23,6 +23,7 @@ class MessageComponent extends React.Component {
                     comptes = {this.props.convs} 
                     beginAconversation = {this.props.beginAConversation}
                     ChangeConv = {this.props.ChangeConvActuel}
+                    EditConv = {this.props.EditConv}
                     />
                 </div>
                 <div class="col col-9">

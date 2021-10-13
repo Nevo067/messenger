@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getDataMessage,getDataCompte,loadConv,ChangeConv,FindParticipant,addMessageSocketEmit,addMessageSocketOn} from "../../js/action";
+import { getDataMessage,getDataCompte,loadConv,ChangeConv,FindParticipant,addMessageSocketEmit,addMessageSocketOn,EditConvEmit} from "../../js/action";
 
 import MessageComponent from "../MessageComponent/MessageComponent";
 import {beginAConversation} from '../../js/action'
@@ -17,6 +17,7 @@ export class MessageControllerComponent extends Component {
         this.loadConvs = this.loadConvs.bind(this);
         this.ChangeConvActuel = this.ChangeConvActuel.bind(this);
         this.addMessages = this.addMessages.bind(this)
+        this.EditConv = this.EditConv.bind(this);
 
     }
 
@@ -33,7 +34,13 @@ export class MessageControllerComponent extends Component {
         socket.on("/messageC",msg =>
         {
             this.props.addMessageSocketOn(msg)
-        })
+        });
+        
+        socket.on("/EditNomConv",conv =>
+        {
+            this.loadConvs();
+        });
+        
 
     }
     componentDidUpdate() {
@@ -49,12 +56,15 @@ export class MessageControllerComponent extends Component {
                         <MessageComponent
                             addMessage={(e) => this.addMessages(e)}
                             beginAConversation={(e)=>this.beginAConv(e)}
+                            EditConv = {(id,nom)=>this.EditConv(id,nom)}
                             key="liste"
                             ListMessage={t}
                             ListCompte = {this.props.comptes}
                             convs = {this.props.convs}
                             ChangeConvActuel = {this.ChangeConvActuel}
                             participant = {this.props.participant}
+
+
                              />
                 </div>
            
@@ -95,6 +105,10 @@ export class MessageControllerComponent extends Component {
                 this.props.FindParticipant(this.props.user.id,conv.Id)
             });
     }
+    EditConv(id,nom)
+    {
+        this.props.EditConvEmit(id,nom,socket);
+    }
 }
 
 const mapStateToProps = (state) => {
@@ -121,5 +135,5 @@ const mapDispatchToProps = dispatch => {
 
 export default connect(
     mapStateToProps,
-    { getDataMessage,beginAConversation,getDataCompte,loadConv,ChangeConv,FindParticipant,addMessageSocketEmit,addMessageSocketOn,OnMessage})
+    { getDataMessage,beginAConversation,getDataCompte,loadConv,ChangeConv,FindParticipant,addMessageSocketEmit,addMessageSocketOn,OnMessage,EditConvEmit})
     (MessageControllerComponent)

@@ -1,6 +1,6 @@
 import apiIp from '../../environment/apiConst';
 
-import {ADD_MESSAGE,MESSAGE_LOAD,MESSAGE_RESET,COMPTE_RESET, USER_LOAD, IS_CONNECT_TRUE,BEGIN_A_CONVERSATION,COMPTE_LOAD, LOAD_CONVS, CHANGE_CONV, LOAD_PART, ADD_CONV} from '../constant/index';
+import {ADD_MESSAGE,MESSAGE_LOAD,MESSAGE_RESET,COMPTE_RESET, USER_LOAD, IS_CONNECT_TRUE,BEGIN_A_CONVERSATION,COMPTE_LOAD, LOAD_CONVS, CHANGE_CONV, LOAD_PART, ADD_CONV, EDIT_CONV} from '../constant/index';
 /*
 export function addMessage(load){
     return function(dispatch){
@@ -230,10 +230,18 @@ export function FindParticipant(idUser,idConv)
     }
     
 }
-export function joinRoom()
+export function EditConvEmit(conv,nom,socket)
 {
-
+    return function(dispatch)
+    {
+        console.log("xxx");
+        let json = `{"conv":${conv},"nom":"${nom}"}`;
+        socket.emit("/EditNomConv",json);
+        
+    }
+    
 }
+
 
 
 

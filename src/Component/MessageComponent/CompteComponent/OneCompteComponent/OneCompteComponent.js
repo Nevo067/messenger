@@ -36,7 +36,7 @@ class OneCompteComponent extends Component
         let isEdit = this.state.isEdit;
         if(!isEdit)
         {
-            
+            this.props.EditConv(this.props.compteId,this.state.nom)
         }
         this.setState({isEdit : !isEdit})
     }

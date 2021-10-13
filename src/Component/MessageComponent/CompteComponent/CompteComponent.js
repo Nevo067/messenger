@@ -26,6 +26,7 @@ class CompteComponent extends Component
         const comptes = logins.map((compte,index)=>
             <OneCompteComponent
             beginAConversation  = {this.props.beginAconversation}
+            EditConv = {this.props.EditConv}
             key = {"compte"+index}
             compteId = {this.props.comptes[index].Id}
             compteLogin ={this.props.comptes[index].nom}

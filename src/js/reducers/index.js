@@ -6,7 +6,8 @@ import ADD_MESSAGE, { MESSAGE_LOAD, MESSAGE_LOAD_FRONT,COMPTE_LOAD,
     LOAD_CONVS,
     CHANGE_CONV,
     LOAD_PART,
-    ADD_CONV} from '../constant/index';
+    ADD_CONV,
+    EDIT_CONV} from '../constant/index';
 
 const initialState = {
     messages: [],
@@ -109,6 +110,7 @@ function rootReducer(state = initialState,action)
                     participant:action.payload
                 };
             }
+        
         default:
             break;
     }

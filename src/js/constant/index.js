@@ -13,4 +13,5 @@ export const ADD_CONV = "ADD_CONV"
 export const LOAD_CONVS = "LOAD_CONV";
 export const CHANGE_CONV = "CHANGE_CONV";
 export const LOAD_PART = "LOAD_PART";
+export const EDIT_CONV = "EDIT_CONV";
 export default ADD_MESSAGE;
