@@ -1,5 +1,6 @@
 import { Component } from "react";
 import './OneCompteComponent.css';
+import {VscGear} from "react-icons/vsc";
 class OneCompteComponent extends Component
 {
     constructor(props)
@@ -26,7 +27,7 @@ class OneCompteComponent extends Component
                     <input type="text" class="form-control" name="nom" value={this.state.nom} onChange={(e)=>this.changeMessage(e)}></input>
                 </div>   
                 }
-                <button class="btn btn-block btn-warning col-3 border" onClick={()=>this.changeIsEdit()}>Edition</button>
+                <button class="btn btn-block btn-warning col-3 border" onClick={()=>this.changeIsEdit()}><VscGear /></button>
             </div>
         )
         
