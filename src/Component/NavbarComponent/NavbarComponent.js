@@ -28,9 +28,6 @@ class NavbarComponent extends Component {
                             <li class="nav-item">
                                 <Link class="nav-link" to="/connexion">Connexion</Link>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link disabled" href="#">Disabled</a>
-                            </li>
                         </ul>
                     </div>
                 </div>

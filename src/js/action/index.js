@@ -163,8 +163,33 @@ export function beginAConversation(id1,id2)
 }
 export function beginAConversationEmit(id1,id2,socket)
 {
-    let load = "{id1:"+id1+",id2:"+id2+"}";
-    socket.emit("/beginConversation",load);
+    return function(dispatch)
+    {
+        let load = JSON.stringify({id1:id1,id2:id2,})
+        socket.emit("/beginConversation",load);
+    }
+    
+}
+export function beginAConversationOn(socket,idUser)
+{
+    return function(dispatch)
+    {
+        socket.on("beginAConversationOn",()=>{
+            const request ={
+                method:'POST',
+                headers:{'Content-Type': 'application/json'},
+                body:JSON.stringify({Id:idUser})
+                
+            };
+            return fetch(apiIp+`Conv/findUser`,request,{mode:'cors'})
+            .then(response => response.json())
+            .then(conv=>{
+                console.log(conv)
+                dispatch({type:LOAD_CONVS ,payload:conv}) 
+            });
+        })
+    }
+    
 }
 //Conversation Method
 
