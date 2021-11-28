@@ -1,4 +1,5 @@
 import { Component } from "react";
+import './connexion.css'
 class ConnexionComponent extends Component
 {
     constructor(props)
@@ -18,7 +19,7 @@ class ConnexionComponent extends Component
         const isConnect = this.state.isConnect
         console.log(isConnect)
         return (
-            <div key={this.props.isConnect}>
+            <div key={this.props.isConnect} class="cardConnexion bg-light shadow">
                 <form>
                     <div class="form-group row">
                         <label for="login" class="text-center col col-3" >Login</label>
